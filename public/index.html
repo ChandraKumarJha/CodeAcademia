@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code Academia</title>
+    <link rel="stylesheet" href="/css/output.css" />
+    <script src="https://kit.fontawesome.com/6e037d5a8d.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="h-screen w-screen bg-white text-black dark:bg-gray-900 dark:text-white 
+  transition-colors duration-300">
+    <!-- navbar of the website -->
+    <nav class="flex items-center mx-4 my-2">
+
+      <!-- logo -->
+      <img src="./images/CodeAcademia.png" alt="logo" class="max-h-16 max-w-16 object-cover mr-4"/>
+      <div class="text-2xl font-semibold font-mono text-black dark:text-white">Code Academia</div>
+
+      <!-- different sections of the webpage -->
+      <a href="/html/about.html" class="w-24 h-10 font-medium text-lg opacity-80 ml-28 text-center cursor-pointer
+      hover:bg-gray-200 hover:text-blue-500 hover:opacity-100 hover:rounded flex justify-center
+      items-center text-black dark:text-white dark:hover:bg-gray-700 dark:hover:text-blue-400">About</a>
+      <a href="/html/courses.html" class="w-28 h-10 font-medium text-lg opacity-80 ml-4 text-center cursor-pointer
+      hover:bg-gray-200 hover:text-blue-500 hover:opacity-100 hover:rounded flex justify-center
+      items-center text-black dark:text-white dark:hover:bg-gray-700 dark:hover:text-blue-400">Courses</a>
+      <a href="/html/docs.html" class="w-20 h-10 font-medium text-lg opacity-80 ml-4 text-center cursor-pointer
+      hover:bg-gray-200 hover:text-blue-500 hover:opacity-100 hover:rounded flex justify-center
+      items-center text-black dark:text-white dark:hover:bg-gray-700 dark:hover:text-blue-400">Docs</a>
+      <a href="/html/user.html" class="w-20 h-10 font-medium text-lg opacity-80 ml-4 text-center cursor-pointer
+      hover:bg-gray-200 hover:text-blue-500 hover:opacity-100 hover:rounded flex justify-center
+      items-center text-black dark:text-white dark:hover:bg-gray-700 dark:hover:text-blue-400">User</a>
+
+      <!-- search bar -->
+      <form class="h-10 w-96 border-2 border-gray-400 relative flex items-center ml-44 mr-6  
+      rounded-full group hover:bg-gray-100 dark:hover:bg-gray-700" action="/search" method="GET">
+        <i class="fa-solid fa-magnifying-glass h-5 w-6 opacity-40 ml-2"></i>
+        <input type="text" name="q" placeholder="Search courses..." class="searchBox h-8 w-64 ml-6 border-none outline-none 
+        focus:ring-0 cursor-pointer bg-inherit dark:hover:bg-gray-700"/>
+        <button type="button" class="clear text-4xl font-semibold flex justify-center items-start cursor-pointer mb-2 mr-1">
+          &times;</button>
+        <div class="h-7 w-[2px] bg-gray-500 mr-12"></div>
+        <button type="submit" id="searchBtn" class="absolute right-4 cursor-pointer ml-3">
+          <i class="fa-solid fa-magnifying-glass h-6 w-7"></i>
+        </button>
+      </form>
+
+      <!-- adding toggle button -->
+      <button id="themeToggle" class="flex items-center gap-2 px-4 py-2 rounded-lg dark:bg-inherit
+      hover:bg-slate-200 dark:hover:bg-slate-700 transition"></button>
+
+      <!-- login button -->
+      <a href="/html/login.html" class=" ml-6 px-4 py-3 rounded-lg hover:bg-slate-200 
+      dark:hover:bg-slate-700 transition flex flex-col justify-center items-center">
+        <i class="fa-solid fa-circle-user h-7 w-7"></i> <br/>
+        <span class="-mt-4">Log in</span> 
+      </a>
+
+    </nav>
+    <hr class="mx-6"/>
+
+    <main id="main" class="min-h-lvh w-screen flex items-center justify-center my-8 mx-4 bg-blue-50 
+    dark:bg-gray-950">
+      <div class="h-screen w-full m-10 bg-[url('/images/Code-Academia-lightBg-image.png')] 
+      dark:bg-[url('/images/Code-Academia-darkBg-image.png')] bg-cover bg-center flex items-center 
+      justify-center flex-col">
+        <h1 class="w-3/5 -mt-64 text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl text-center 
+        dark:text-white font-['Inter var']">Learn different coding languages all in one place.</h1>
+        <p class="w-2/5 mt-12 text-slate-900 text-2xl max-w-3xl text-center dark:text-white font-bold
+        tracking-tight font-mono">Code Academia teaches different computer languages like HTML, CSS, 
+        JavaScript, Python, Express.js and many more...
+        </p>
+        <a href="/html/login.html" class="py-3 px-6 mt-5 rounded-lg text-lg bg-slate-900 text-white 
+        font-['Inter var'] hover:bg-slate-700 dark:bg-sky-500 dark:hover:bg-sky-400 font-medium">
+          Get Started <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <form class="h-12 w-2/5 border border-gray-400 mt-8 relative flex items-center rounded-full 
+        group cursor-pointer" action="/search" method="GET">
+          <i class="fa-solid fa-magnifying-glass h-5 w-6 opacity-40 ml-2"></i>
+          <input type="text" name="q" placeholder="Search courses..." class="searchBox h-8 w-3/4 ml-5 
+          border-none outline-none focus:ring-0 cursor-pointer bg-inherit"/>
+          <button type="button" class="clear text-4xl font-semibold flex justify-center items-start cursor-pointer 
+          mb-2 mr-1">&times;</button>
+          <div class="h-7 w-[2px] bg-gray-500"></div>
+          <button type="submit" id="searchBtn" class="absolute right-4 cursor-pointer ml-3">
+            <i class="fa-solid fa-magnifying-glass h-6 w-7"></i>
+          </button>
+      </form>
+
+      <div class="flex justify-center items-center flex-row">
+
+        <a href="/html/html.html" class="w-14 h-14 opacity-85 mt-5 cursor-pointer hover:bg-gray-200 
+        hover:opacity-100 hover:rounded flex justify-center items-center dark:hover:bg-gray-700 mr-6">
+          <img src="./images/html.png" alt="HTML" class="w-12 h-12 object-fit ">
+        </a>
+
+        <a href="/html/css.html" class="w-14 h-14 opacity-85 mt-5 cursor-pointer hover:bg-gray-200 
+        hover:opacity-100 hover:rounded flex justify-center items-center dark:hover:bg-gray-700 mr-6">
+          <img src="./images/css.svg" alt="CSS" class="w-12 h-12 object-fit ">
+        </a>
+
+        <a href="/html/javascript.html" class="w-14 h-14 opacity-85 mt-5 cursor-pointer hover:bg-gray-200 
+        hover:opacity-100 hover:rounded flex justify-center items-center dark:hover:bg-gray-700 mr-6">
+          <img src="./images/javascript.png" alt="JavaScript" class="w-12 h-12 object-fit ">
+        </a>
+
+        <a href="/html/python.html" class="w-14 h-14 opacity-85 mt-5 cursor-pointer hover:bg-gray-200 
+        hover:opacity-100 hover:rounded flex justify-center items-center dark:hover:bg-gray-700 mr-6">
+          <img src="./images/python.png" alt="Python" class="w-12 h-12 object-fit ">
+        </a>
+
+        <a href="/html/expressjs.html" class="w-24 h-14 opacity-85 mt-5 cursor-pointer hover:bg-gray-200 
+        hover:opacity-100 hover:rounded flex justify-center items-center dark:hover:bg-gray-700">
+          <img src="./images/expressjs.png" alt="Express.JS" class="w-24 h-12 object-fit ">
+        </a>
+
+      </div>
+      </div>
+    </main>
+
+    <hr class="mx-6"/>
+
+    <footer class="m-10">
+
+      <p class="text-lg font-medium text-center mt-20">
+        Start your coding journey with Code Academia. <br> Learn new languages, revise, and practice tests, 
+        conceptual question for refining skills on Code Academia.<br>
+        Master coding skills with great passion and empower others too.
+      </p>
+
+      <div class="flex flex-row justify-center items-center mt-12 mb-12">
+        <img src="./images/CodeAcademia.png" alt="logo" class="max-h-16 max-w-16 object-cover mr-4"/>
+        <div class="text-2xl font-semibold font-mono text-black dark:text-white">Code Academia</div>
+      </div>
+
+    </footer>
+    <div class="h-8 w-full"></div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

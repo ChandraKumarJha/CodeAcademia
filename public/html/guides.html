@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guides</title>
+  <link rel="stylesheet" href="/css/output.css">
+  <link rel="stylesheet" href="../css/scrollBar.css">
+  <script src="https://kit.fontawesome.com/6e037d5a8d.js" crossorigin="anonymous"></script>
+</head>
+<body class="h-screen w-screen bg-white text-black dark:bg-gray-900 dark:text-white 
+  transition-colors duration-300">
+  <!-- navbar -->
+  <nav class="h-20 fixed top-0 right-0 left-0 flex items-center px-36">
+    <img src="../images/CodeAcademia.png" alt="logo" class="max-h-16 max-w-16 object-cover mr-4"/>
+    <div class="text-2xl font-semibold font-mono text-black dark:text-white">Code Academia</div>
+    <form class="h-10 w-96 border-2 border-gray-400 relative flex items-center ml-[500px] mr-6  
+      rounded-full group hover:bg-gray-100 dark:hover:bg-gray-700" action="/search" method="GET">
+        <i class="fa-solid fa-magnifying-glass h-5 w-6 opacity-40 ml-2"></i>
+        <input type="text" name="q" placeholder="Search courses..." class="searchBox h-8 w-64 ml-6 border-none outline-none 
+        focus:ring-0 cursor-pointer bg-inherit dark:hover:bg-gray-700"/>
+        <button type="button" class="clear text-4xl font-semibold flex justify-center items-start cursor-pointer mb-2 mr-1">
+          &times;</button>
+        <div class="h-7 w-[2px] bg-gray-500 mr-12"></div>
+        <button type="submit" id="searchBtn" class="absolute right-4 cursor-pointer ml-3">
+          <i class="fa-solid fa-magnifying-glass h-6 w-7"></i>
+        </button>
+      </form>
+      <div class="h-8 w-0.5 bg-gray-600 rounded-full"></div>
+      <button id="themeToggle" class="flex items-center ml-6 gap-2 px-4 py-2 rounded-lg dark:bg-inherit
+      hover:bg-slate-200 dark:hover:bg-slate-700 transition"></button>
+  </nav>
+  <hr class="fixed top-20 right-0 left-0"/>
+  <div class="w-full fixed top-24 grid grid-cols-4">
+    <!-- left-side navbar -->
+    <div class="col-start-1 col-end-2 max-h-[650px] overflow-y-auto custom-scroll scroll-smooth pl-32 pt-10">
+      <nav>
+        
+        <ul>
+          <li class="text-3xl font-semibold font-mono">HTML</li>
+          <li class="border-l border-gray-300 hover:border-gray-500 pl-6 mt-2 dark:border-gray-600 
+          dark:hover:border-gray-400">
+            <a href="./guides.html" class="hover:text-sky-500">Guides</a>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+    <!-- right-side content -->
+    <div class="col-start-2 col-end-5 max-h-[650px] overflow-y-auto custom-scroll scroll-smooth px-8 pt-5">
+      
+      <header>
+        <h1 class="font-semibold text-4xl text-center mb-2">HTML guides</h1>
+        <p class="text-xl text-center mb-4 dark:opacity-70">After reading this page you would know the basic guides to HTML.</p>
+      </header>
+
+      <main class="text-center">
+        <h2 class="text-3xl font-semibold text-center mb-2"><u>Basics</u></h2>
+        <p class="text-lg font-[open_sans] mb-4 dark:opacity-70">The full form of HTML is <i>Hyper Text Markup Language</i>. HTML is the standard markup language for Web pages. With HTML you can create your own Website, Webapps.
+        HTML elements label pieces of content such as "this is a heading", "this is a paragraph", "this is a link", etc.</p>
+        <h2 class="text-center font-semibold text-3xl underline mb-4">The basic syntax of HTML is as follows :</h2>
+        <div class="relative rounded-2xl h-80 bg-slate-800 mr-8 text-left mb-10">
+          <div class="h-10 bg-inherit absolute top-0 w-full rounded-2xl flex flex-row border-b-2 border-slate-600">
+            <div class="w-3.5 h-3.5 bg-slate-600 rounded-full ml-4 mt-3"></div>
+            <div class="w-3.5 h-3.5 bg-slate-600 rounded-full ml-2 mt-3"></div>
+            <div class="w-3.5 h-3.5 bg-slate-600 rounded-full ml-2 mt-3 "></div>
+          </div>
+          <div class="absolute bottom-0 left-0 h-[278px] w-14 bg-inherit rounded-2xl">
+            <div class="ml-5 w-full h-full mt-3 text-slate-500">
+              <span>1</span>
+              <br/>
+              <span>2</span>
+              <br/>
+              <span>3</span>
+              <br/>
+              <span>4</span>
+              <br/>
+              <span>5</span>
+              <br/>
+              <span>6</span>
+              <br/>
+              <span>7</span>
+              <br/>
+              <span>8</span>
+              <br/>
+              <span>9</span>
+              <br/>
+              <span>10</span>
+              <br/>
+              <span>11</span>
+              <br/>
+            </div>
+          </div>
+          <div class="absolute w-11/12 h-[278px]  bottom-0 right-0 bg-inherit rounded-2xl">
+            <div class="w-full h-full mt-3 text-slate-500 font-medium font-mono -ml-4">
+              &lt;!<span class="text-sky-600">DOCTYPE</span> <span class="text-sky-400">html</span>&gt;
+              <br/>
+              &lt;<span class="text-sky-600">html</span> <span class="text-sky-400">lang</span>=<span class="text-amber-600">"en"</span>&gt;
+              <br/>
+              &lt;<span class="text-sky-600">head</span>&gt;
+              <br/>
+              <pre>  &lt;<span class="text-sky-600">title</span>&gt;My page title&lt;/<span class="text-sky-600">title</span>&gt;</pre>
+              &lt;<span class="text-sky-600">/head</span>&gt;
+              <br/>
+              &lt;<span class="text-sky-600">body</span>&gt;
+              <br/>
+              <br/>
+              <pre>  &lt;<span class="text-sky-600">h1</span>&gt;Hello World!&lt;/<span class="text-sky-600">h1</span>&gt;</pre>
+              <br/>
+              &lt;<span class="text-sky-600">/body</span>&gt;
+              <br/>
+              &lt;<span class="text-sky-600">/html</span>&gt;                
+            </div>
+          </div>
+        </div>
+        <h2 class="text-3xl text-center underline mb-4 font-semibold">Here is the detailed explanation of the basic syntax :</h2>
+        <ul class="mb-10 list-disc text-left ml-20 text-lg">
+          <li>The <i class="underline">&lt;!DOCTYPE html&gt;</i> declaration defines that this document is an HTML5 document.</li>
+          <li>The <i class="underline">&lt;html&gt;</i> element is the root element of an HTML page.</li>
+          <li>The <i class="underline">&lt;head&gt;</i> element contains meta information about the HTML page.</li>
+          <li>The <i class="underline">&lt;title&gt;</i> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab).</li>
+          <li>The <i class="underline">&lt;body&gt;</i> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.</li>
+          <li>The <i class="underline">&lt;h1&gt;</i> element defines a large heading.</li>
+          <li>The <i class="underline">&lt;p&gt;</i> element defines a paragraph.</li>
+        </ul>
+        <h2 class="text-3xl font-semibold underline mb-4">What is a HTML element ?</h2>
+        <p class="mb-10 text-lg">An HTML element is defined by a start tag, some content, and an end tag like this:
+          <br/>
+          &lt;tagname&gt; Content goes here... &lt;/tagname&gt;
+          <br/>
+          <u class="font-bold">Exceptions</u>: Some HTML elements can have no content and thus no closing line. These tags are called empty elements 
+          or void elements. Examples :&lt;br&gt;, &lt;hr&gt;, &lt;input&gt;, &lt;img&gt;, &lt;link&gt;, &lt;meta&gt;, 
+          &lt;source&gt;
+        </p>
+        <h2 class="text-3xl font-semibold underline mb-4">Web Browsers</h2>
+        <p class="mb-10 text-lg">
+          The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.
+          <br/>
+          A browser does not display the HTML tags, but uses them to determine how to display the document:
+        </p>
+        <img src="../images/htmlBasicSyntax.png" alt="" class="border border-gray-800">
+        <br/>
+        <h2 class="text-3xl font-semibold underline mb-5">Tree like structure of HTML:</h2>
+        <div class="width-full border border-gray-500 p-1 mb-10 bg-gray-300">&lt;html&gt;
+          <div class="w-[90%] border border-gray-500 p-1 m-5">&lt;head&gt;
+            <div class="w-[90%] border border-gray-500 p-4 m-5">&lt;title&gt;Page title&lt;/title&gt;
+            </div>
+          &lt;/head&gt;
+          </div>
+        <div class="w-[90%] border border-gray-500 p-1 m-5">&lt;body&gt;
+          <div class="w-[90%] border border-gray-500 p-4 m-5 bg-white">
+            <div class="w-[90%] border border-gray-500 p-4 m-5">&lt;h1&gt;This is a heading&lt;/h1&gt;</div>
+            <div class="w-[90%] border border-gray-500 p-4 m-5">&lt;p&gt;This is a paragraph.&lt;/p&gt;</div>
+            <div class="w-[90%] border border-gray-500 p-4 m-5">&lt;p&gt;This is another paragraph.&lt;/p&gt;</div>
+          </div>
+          &lt;/body&gt;
+          </div>
+          &lt;/html&gt;
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/script.js"></script> 
+</body>
+</html>

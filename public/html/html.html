@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="../css/scrollBar.css">
+    <script src="https://kit.fontawesome.com/6e037d5a8d.js" crossorigin="anonymous"></script>
+</head>
+<body class="h-screen w-screen bg-white text-black dark:bg-gray-900 dark:text-white 
+  transition-colors duration-300">
+
+  <nav class="h-20 fixed top-0 right-0 left-0 flex items-center px-36">
+    <img src="../images/CodeAcademia.png" alt="logo" class="max-h-16 max-w-16 object-cover mr-4"/>
+    <div class="text-2xl font-semibold font-mono text-black dark:text-white">Code Academia</div>
+    <form class="h-10 w-96 border-2 border-gray-400 relative flex items-center ml-[500px] mr-6  
+      rounded-full group hover:bg-gray-100 dark:hover:bg-gray-700" action="/search" method="GET">
+        <i class="fa-solid fa-magnifying-glass h-5 w-6 opacity-40 ml-2"></i>
+        <input type="text" name="q" placeholder="Search courses..." class="searchBox h-8 w-64 ml-6 border-none outline-none 
+        focus:ring-0 cursor-pointer bg-inherit dark:hover:bg-gray-700"/>
+        <button type="button" class="clear text-4xl font-semibold flex justify-center items-start cursor-pointer mb-2 mr-1">
+          &times;</button>
+        <div class="h-7 w-[2px] bg-gray-500 mr-12"></div>
+        <button type="submit" id="searchBtn" class="absolute right-4 cursor-pointer ml-3">
+          <i class="fa-solid fa-magnifying-glass h-6 w-7"></i>
+        </button>
+      </form>
+      <div class="h-8 w-0.5 bg-gray-600 rounded-full"></div>
+      <button id="themeToggle" class="flex items-center ml-6 gap-2 px-4 py-2 rounded-lg dark:bg-inherit
+      hover:bg-slate-200 dark:hover:bg-slate-700 transition"></button>
+  </nav>
+  <hr class="fixed top-20 right-0 left-0"/>
+  <div class="w-full fixed top-24 grid grid-cols-4">
+    <div class="col-start-1 col-end-2 max-h-[650px] overflow-y-auto custom-scroll scroll-smooth ml-32 mt-10">
+      <nav>
+        
+        <ul>
+          <li class="text-3xl font-semibold font-mono">HTML</li>
+          <li class="border-l border-gray-300 hover:border-gray-500 pl-6 mt-2 dark:border-gray-600 
+          dark:hover:border-gray-400">
+            <a href="./guides.html">Guides</a>
+          </li>
+        </ul>
+
+      </nav>
+      
+  </div>
+  
+  <script src="../js/script.js"></script>
+</body>
+</html>
