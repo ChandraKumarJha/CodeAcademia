@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/output.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Collapsible Sidebar</title>
+
+    <style>
+        .menu-item{
+            display:flex;
+            align-items:center;
+            gap:16px;
+            padding:12px;
+            border-radius:10px;
+            cursor:pointer;
+            transition:.3s;
+            color:#555;
+        }
+
+        .menu-item:hover{
+            background:#ede9fe;
+        }
+
+        .menu-item i{
+            width:24px;
+            text-align:center;
+            font-size:18px;
+        }
+    </style>
+</head>
+
+<body class="h-screen w-screen bg-slate-100 text-black dark:bg-gray-900 dark:text-white 
+  transition-colors duration-300">
+
+<div class="flex">
+
+  
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="sm:hidden lg:hidden xl:hidden 2xl:hidden relative h-screen w-[25%] dark:bg-slate-800 bg-white shadow-lg transition-all duration-300">
+
+        <div class="fixed top-0 left-0 bg-white pb-20 h-screen">
+
+        <!-- Toggle -->
+        <button id="toggleBtn"
+            class="absolute -right-4 top-8 h-8 w-8 rounded-full bg-violet-600 text-white shadow-md">
+            <
+        </button>
+
+        <!-- Logo -->
+        <div class="flex items-center gap-3 p-5">
+
+            <div class="w-10 h-10 rounded-xl bg-violet-600 flex items-center justify-center text-white font-bold">
+                CA
+            </div>
+
+            <div class="sidebar-text hidden">
+                <h2 class="font-bold text-lg">Code Academia</h2>
+            </div>
+
+        </div>
+
+        <!-- Search -->
+        <div class="px-3 w-3/4">
+
+            <div class="flex items-center gap-3 bg-violet-50 rounded-lg p-3 dark:bg-violet-500">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    class="sidebar-text hidden bg-transparent outline-none w-full"
+                    placeholder="Search..."
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Menu -->
+
+        <ul class="mt-5 space-y-2 px-3">
+
+            <li class="menu-item dark:hover:bg-violet-500 dark:text-white">
+                <i class="fa-solid fa-info"></i>
+                <span class="sidebar-text hidden">About</span>
+            </li>
+
+            <li class="menu-item dark:hover:bg-violet-500 dark:text-white">
+                <i class="fa-solid fa-code"></i>
+                <span class="sidebar-text hidden">Courses</span>
+            </li>
+
+            <li class="menu-item dark:hover:bg-violet-500 dark:text-white">
+                <i class="fa-regular fa-file"></i>
+                <span class="sidebar-text hidden">Docs</span>
+            </li>
+
+            <li class="menu-item dark:hover:bg-violet-500 dark:text-white">
+                <i class="fa-solid fa-user"></i>
+                <span class="sidebar-text hidden">User</span>
+            </li>
+
+        </ul>
+
+        <!-- Bottom -->
+
+        <div id="modeSwitcher" class="modeSwitcher fixed bottom-4 w-[20%] p-1">
+
+            <div class="flex items-center justify-between bg-violet-50 rounded-lg dark:bg-violet-500">
+
+              <button id="themeToggle" class="w-full h-full p-3">
+
+                <div class="flex items-center gap-4">
+
+                    <i class="fa-regular fa-moon"></i>
+
+                    <span class="sidebar-text hidden">
+                        Dark Mode
+                    </span>
+
+                </div>
+
+              </button>
+
+            </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Content -->
+
+    <main class="flex-1 p-8">
+
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa excepturi, assumenda magni eligendi aperiam ipsum sed odio. Incidunt commodi tempora labore ullam quas, atque vel ex, quos quisquam maiores sunt.
+        Est facilis nesciunt distinctio voluptate eveniet placeat laboriosam fugit atque officiis molestiae minima itaque velit culpa, nisi aliquid dolores totam tempora sint aperiam nemo qui dolorem? Hic distinctio nemo consequatur.
+        Placeat, asperiores aspernatur ipsa possimus doloribus nihil est alias earum velit autem ea labore, quas debitis voluptates? Nihil, delectus quibusdam? Veritatis modi cumque dicta accusamus quae dolorum eligendi eveniet unde!
+        Aperiam inventore nihil tempora sed vero eligendi expedita tempore quo harum. Commodi quasi quod nobis quam eligendi doloremque voluptates perspiciatis eveniet tempora culpa, molestiae quia, optio dolorem autem quisquam ea?
+        Sunt, quam doloremque veniam, quaerat fugit facilis beatae illum pariatur voluptatem rem quia praesentium in dignissimos laborum ea omnis labore eum facere, perferendis adipisci sint. Ipsam accusamus esse inventore sequi?
+        Necessitatibus animi aperiam ab laboriosam ullam. Esse repellendus tempore iusto deserunt in assumenda nobis. Nisi porro saepe eos soluta, laudantium rerum, excepturi similique nihil assumenda repellendus quibusdam, commodi dicta labore?
+        Ab qui obcaecati impedit quae, dolorem voluptatibus aperiam aliquid tempore vero ad vel provident tenetur. Blanditiis, aspernatur neque laboriosam, vel id a eligendi, sequi minima voluptatem iusto provident earum veritatis.
+        Consequatur at minima quae facere, quidem in consequuntur molestias et id est aspernatur temporibus, amet ea saepe aliquid, ipsam deserunt eum? Temporibus iure dignissimos perferendis ducimus nihil ipsum, incidunt voluptatibus!
+        Facilis numquam aut officiis corrupti quasi, incidunt tenetur nostrum sed officia illum, obcaecati sint accusantium doloribus dolorum amet delectus provident voluptatem, minus assumenda? Beatae quod officiis sit consequatur ipsum recusandae?
+        Sint, reiciendis! Recusandae, inventore. Nihil veritatis, eveniet ipsum quibusdam commodi hic delectus ab consectetur veniam optio, repellat et dolorem modi suscipit quos atque id praesentium at? Ut dignissimos quis quos.
+        Aut soluta fugit itaque ipsa ullam, unde vel distinctio autem? Ipsum repellat natus, qui atque vel vero blanditiis neque totam aliquam, fugit quibusdam debitis rem optio temporibus assumenda placeat cumque?
+        Dolore quos nobis consectetur sit laboriosam, in, minus dolorum velit corporis autem maiores quasi nihil iure ullam. Veritatis magnam tempora error ad animi, doloremque, sed, dolorem ratione nulla ducimus voluptatum.
+        Non quibusdam dolorem perspiciatis, assumenda consequuntur iure, vel minus atque suscipit nam vero porro animi beatae perferendis qui reprehenderit iste velit distinctio officiis nostrum facere corporis rem? Enim, voluptatibus aliquid.
+        Assumenda excepturi magnam nemo! Officiis, tenetur dignissimos nulla quas ipsa corporis quod cum vero fugit sint incidunt ipsum harum, quibusdam reiciendis laboriosam quaerat maiores. Quisquam neque suscipit voluptatum mollitia quibusdam!
+        Ratione quae minus sit omnis, magnam ipsa asperiores laudantium excepturi debitis magni cum sequi facilis iusto eum eligendi officiis ipsam commodi. Blanditiis voluptates nostrum accusamus temporibus laboriosam placeat cumque molestias!
+        Libero aperiam sunt amet fugiat, itaque fugit, nihil vitae tenetur facilis rem consequatur voluptate quisquam obcaecati sed nulla voluptatum? Sed ducimus repudiandae praesentium hic neque illo dicta totam sit pariatur!
+        Labore sint facere voluptate in. Rerum necessitatibus labore qui aliquam molestias commodi dicta adipisci quam, quibusdam eveniet explicabo. Suscipit amet beatae totam a voluptates, tenetur temporibus accusamus. Quia, accusantium exercitationem!
+        Commodi ipsa eius dignissimos voluptates veniam in consectetur ipsum quisquam odio omnis dicta voluptatem sit temporibus cumque perspiciatis ducimus, ab dolorum laudantium, eligendi reprehenderit modi culpa ipsam. Ratione, assumenda eos!
+        Provident, aliquam consequatur similique necessitatibus sequi veniam tempore. Excepturi repellendus nemo nihil ipsam autem, voluptate eius a alias corporis nesciunt sapiente delectus porro expedita corrupti impedit at exercitationem ut aperiam.
+        Ipsa repellat dolores officia tenetur nisi corporis, dolor maxime, aliquid laboriosam iure sed, quos quidem. Autem, in aut asperiores ut accusantium atque, aspernatur libero soluta, voluptas beatae tempore harum quia.
+        Consequatur architecto repellat natus at! Veniam perferendis, libero labore itaque alias consequatur ipsam? Nulla, dignissimos ipsa? Earum esse sit, aut eos iure provident adipisci aliquam quo quae nemo, minus labore?
+        Cupiditate vel quaerat illum ad facilis, distinctio iste fuga, voluptas incidunt provident, quibusdam rerum dolor expedita veniam hic culpa unde suscipit at et quam. Modi natus dolorum tenetur sequi impedit?
+        Similique explicabo perspiciatis, animi quos vel quidem voluptas qui cumque iusto deleniti eos, dolorum vero magnam quo eaque esse, maxime beatae ut nisi! Nobis nulla beatae corrupti saepe tenetur quam?
+        Dolore nihil a tempora ipsam tenetur quasi expedita nam cum odit voluptas, doloremque blanditiis quis dicta error porro esse dignissimos suscipit animi dolor obcaecati placeat? Illo fuga nemo ipsa nihil!
+        Tenetur officia itaque, quia laboriosam optio at, molestias aperiam, sequi alias accusantium veniam consectetur exercitationem magnam fuga magni aliquid saepe necessitatibus placeat corrupti voluptatum nam laborum? Adipisci aliquam ut inventore!
+        Voluptatem quos minima ea molestias dicta magnam ratione sunt beatae, dolorem labore assumenda accusamus earum illo! Quam, aperiam iusto illo, quod impedit pariatur, sit dolores velit ratione numquam tempora neque?
+        Odit eveniet nulla necessitatibus nostrum aut earum nam ut nihil assumenda eum dignissimos cum laudantium qui quo praesentium veniam laborum nisi obcaecati aliquam quisquam, animi eligendi incidunt? Earum, recusandae incidunt.
+        Quidem, ut, unde blanditiis assumenda eos iste quos, nostrum iusto sed ad vero id ipsam iure maxime culpa ea quasi minima. Aliquam commodi at quas provident voluptates consequuntur pariatur dolor?
+        Inventore, laudantium harum quis quidem nostrum aliquid, itaque ea adipisci beatae natus libero vero expedita maxime deleniti voluptatum rem quae nobis reiciendis pariatur aspernatur, consequuntur repellendus obcaecati. Minima, voluptates quo?
+        Nisi magni mollitia doloremque repellendus laborum voluptate qui accusamus quo optio enim, animi suscipit itaque, nulla praesentium iusto libero labore velit illum non sapiente excepturi tempora? Voluptatum atque velit ratione.
+
+    </main>
+
+</div>
+
+<script src="../js/indexSidebar.js"></script>
+
+</body>
+</html>
