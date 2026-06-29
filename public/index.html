@@ -150,16 +150,18 @@
     <script src="./js/script.js"></script>
     <script>
       const sidebar = document.getElementById("sidebar");
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
 
-      document.getElementById("menu-btn").onclick = () => {
+      menuBtn.addEventListener('click', () => {
         sidebar.classList.add("text-black");
         sidebar.classList.remove("text-inherit");
-      };
+      });
 
-      document.getElementById("close-btn").onclick = () => {
+      closeBtn.addEventListener('click', () => {
         sidebar.classList.remove("text-black");
         sidebar.classList.add("text-inherit");
-      };
+      });
     </script>
   </body>
 </html>
