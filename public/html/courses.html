@@ -270,6 +270,18 @@
         if (localStorage.getItem("theme") === "dark") {
           document.documentElement.classList.add("dark");
         }
+<<<<<<< HEAD
+=======
+        const passwordInput = document.getElementById('password');
+        const toggleButton = document.getElementById('togglePassword');
+
+        toggleButton.addEventListener('click', () => {
+          const isPassword = passwordInput.getAttribute('type') === 'password';
+          passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+          toggleButton.textContent = isPassword ? '🙈' : '👁️';
+          toggleButton.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+        });
+>>>>>>> 7292115 (Initial Commit)
     </script>
 </body>
 </html>

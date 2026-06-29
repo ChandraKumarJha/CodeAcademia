@@ -4,7 +4,11 @@ username-->  ud400652_db_user
 
 password-->  wTUfFLX0Ziz3ZUYm
 
+<<<<<<< HEAD
 connectionStr-->  mongodb+srv://chandrakrjha911_db_user:h4SPGWmmVJMevTE3@userdatabase.nfhlupi.mongodb.net/userDB 
 git add .
 git commit -m "Updated login page"
 git push
+=======
+connectionStr-->  mongodb+srv://chandrakrjha911_db_user:h4SPGWmmVJMevTE3@userdatabase.nfhlupi.mongodb.net/
+>>>>>>> 7292115 (Initial Commit)
