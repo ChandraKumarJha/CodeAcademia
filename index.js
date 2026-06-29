@@ -56,7 +56,7 @@ app.post('/html/courses.html', async (req, res) => {
 app.get('/search', (req, res) => {
     const searchTerm = req.query.q.toLowerCase().replace(/\s+/g, ''); 
     
-    const filePath = path.join(__dirname, 'public', 'HTML',  `${searchTerm}.html`);
+    const filePath = path.join(__dirname, 'public', 'html',  `${searchTerm}.html`);
 
     if (fs.existsSync(filePath)) {
         res.sendFile(filePath);
