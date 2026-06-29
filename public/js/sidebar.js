@@ -9,42 +9,40 @@ toggleBtn.addEventListener("click", () => {
 
     collapsed = !collapsed;
 
-    if (collapsed) {
+    // Sidebar Width
+    sidebar.classList.toggle("w-72");
+    sidebar.classList.toggle("w-24");
 
-        sidebar.classList.replace("w-72", "w-20");
+    // Main Content Margin
+    main.classList.toggle("ml-72");
+    main.classList.toggle("ml-24");
 
-        main.classList.replace("ml-72", "ml-20");
+    // Move Button
+    toggleBtn.classList.toggle("left-[270px]");
+    toggleBtn.classList.toggle("left-[72px]");
 
-        toggleBtn.classList.replace("left-[270px]", "left-[55px]");
+    // Rotate Arrow
+    arrow.classList.toggle("rotate-180");
 
-        arrow.classList.replace("ri-arrow-left-s-line", "ri-arrow-right-s-line");
+    // Hide/Show Text
+    document.querySelectorAll(".sidebar-text").forEach(el=>{
+        el.classList.toggle("hidden");
+    });
 
-        sidebar.querySelectorAll("span,p,h1,input").forEach(e=>{
-            e.classList.add("hidden");
-        });
+    // Center Everything
+    document.querySelectorAll(".sidebar-item").forEach(item=>{
+        item.classList.toggle("justify-center");
+        item.classList.toggle("gap-4");
+    });
 
-        sidebar.querySelectorAll("a").forEach(link=>{
-            link.classList.add("justify-center");
-        });
+    // Search Box
+    const search = document.getElementById("searchBox");
 
-    } else {
+    search.classList.toggle("justify-center");
+    search.classList.toggle("px-4");
+    search.classList.toggle("px-0");
 
-        sidebar.classList.replace("w-20", "w-72");
-
-        main.classList.replace("ml-20", "ml-72");
-
-        toggleBtn.classList.replace("left-[55px]", "left-[270px]");
-
-        arrow.classList.replace("ri-arrow-right-s-line", "ri-arrow-left-s-line");
-
-        sidebar.querySelectorAll("span,p,h1,input").forEach(e=>{
-            e.classList.remove("hidden");
-        });
-
-        sidebar.querySelectorAll("a").forEach(link=>{
-            link.classList.remove("justify-center");
-        });
-
-    }
+    document.getElementById("searchInput")
+            .classList.toggle("hidden");
 
 });

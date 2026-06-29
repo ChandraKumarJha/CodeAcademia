@@ -24,68 +24,63 @@
         class="fixed top-0 left-0 h-screen w-72 bg-white shadow-xl transition-all duration-300 z-50">
 
         <!-- Logo -->
-        <div class="flex items-center gap-4 p-6">
+        <div class="sidebar-item flex items-center gap-4 p-6">
 
-            <div
-                class="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white font-bold text-xl">
-                CL
-            </div>
+          <div class="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white font-bold">
+            CL
+          </div>
 
-            <div>
-                <h1 class="font-bold text-xl">CodingLab</h1>
-                <p class="text-gray-500 text-sm">Web Developer</p>
-            </div>
+          <div class="sidebar-text">
+            <h1 class="font-bold text-xl">CodingLab</h1>
+            <p class="text-sm text-gray-500">Web Developer</p>
+          </div>
 
         </div>
 
         <!-- Search -->
-        <div class="px-5">
+        <div id="searchBox"
+          class="sidebar-item flex items-center gap-4 bg-violet-50 rounded-xl px-4 py-3 mx-4">
 
-            <div
-                class="flex items-center bg-violet-50 rounded-xl px-4 py-3">
+          <i class="ri-search-line text-xl"></i>
 
-                <i class="ri-search-line text-xl text-gray-500"></i>
+          <input
+            id="searchInput"
+            class="sidebar-text bg-transparent outline-none w-full"
+            placeholder="Search...">
 
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    class="bg-transparent outline-none ml-3 w-full">
-
-            </div>
-
-        </div>
+          </div>  
 
         <!-- Menu -->
         <nav class="mt-8">
 
-            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
-                <i class="ri-home-5-line text-2xl"></i>
-                Dashboard
+            <a href="#" class="sidebar-item flex items-center gap-4 px-6 py-4 hover:bg-violet-50 rounded-xl">
+              <i class="ri-home-5-line text-2xl"></i>
+              <span class="sidebar-text">Dashboard</span>
             </a>
 
-            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
-                <i class="ri-bar-chart-box-line text-2xl"></i>
-                Revenue
+            <a href="#" class="sidebar-item flex items-center gap-4 px-6 py-4 hover:bg-violet-50 rounded-xl">
+              <i class="ri-home-5-line text-2xl"></i>
+              <span class="sidebar-text">fireubgijbv</span>
             </a>
 
-            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
-                <i class="ri-notification-3-line text-2xl"></i>
-                Notifications
+            <a href="#" class="sidebar-item flex items-center gap-4 px-6 py-4 hover:bg-violet-50 rounded-xl">
+              <i class="ri-home-5-line text-2xl"></i>
+              <span class="sidebar-text">oerpo9ghkjvbok4</span>
             </a>
 
-            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
-                <i class="ri-pie-chart-line text-2xl"></i>
-                Analytics
+            <a href="#" class="sidebar-item flex items-center gap-4 px-6 py-4 hover:bg-violet-50 rounded-xl">
+              <i class="ri-home-5-line text-2xl"></i>
+              <span class="sidebar-text">ojoreiijoknsdv</span>
             </a>
 
-            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
-                <i class="ri-heart-line text-2xl"></i>
-                Likes
+            <a href="#" class="sidebar-item flex items-center gap-4 px-6 py-4 hover:bg-violet-50 rounded-xl">
+              <i class="ri-home-5-line text-2xl"></i>
+              <span class="sidebar-text">Likes</span>
             </a>
 
-            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
-                <i class="ri-wallet-3-line text-2xl"></i>
-                Wallets
+            <a href="#" class="sidebar-item flex items-center gap-4 px-6 py-4 hover:bg-violet-50 rounded-xl">
+              <i class="ri-home-5-line text-2xl"></i>
+              <span class="sidebar-text">je-9v h0oifj[ </span>
             </a>
 
         </nav>
@@ -98,24 +93,17 @@
                 Logout
             </a>
 
-            <div
-                class="flex items-center justify-between mt-4 bg-violet-50 rounded-xl px-4 py-3">
+            <div class="sidebar-item flex items-center justify-between bg-violet-50 rounded-xl p-4">
 
-                <div class="flex items-center gap-4">
+              <div class="flex items-center gap-4">
 
-                    <i class="ri-moon-line text-2xl"></i>
+                  <i class="ri-moon-line text-2xl"></i>
 
-                    <span>Dark Mode</span>
+                  <span class="sidebar-text">Dark Mode</span>
 
-                </div>
+              </div>
 
-                <button
-                    class="w-12 h-6 rounded-full bg-gray-300 relative">
-
-                    <div
-                        class="w-5 h-5 bg-white rounded-full absolute left-0.5 top-0.5"></div>
-
-                </button>
+              <button class="w-12 h-6 rounded-full bg-gray-300"></button>
 
             </div>
 
