@@ -2,14 +2,9 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    "./public/**/*.html",
-    "./public*.html"],
+    "./public/**/*.{html,js}"],
   theme: {
-    extend: {
-      backgroundImage: {
-        'dark-bg-image': "url('./images/Code Academia darkBg-image.png')",
-      }
-    },
+    extend: {},
   },
   plugins: [],
 }
