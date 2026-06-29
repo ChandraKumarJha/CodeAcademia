@@ -136,12 +136,16 @@
       <button id="menu-btn" class="sm:hidden">☰</button>
 
 <div id="sidebar" class="sidebar sm:flex flex-col relative h-auto w-52 gap-8 hidden ">
-    <button id="close-btn" class="right-0 top-0">✕</button>
+    <button id="close-btn" class="absolute right-0 top-0">✕</button>
 
     <a href="/">Home</a>
+    <br />
     <a href="/Courses">Courses</a>
+    <br />
     <a href="/Projects">Projects</a>
+    <br />
     <a href="/Contact">Contact</a>
+    <br />
 </div>
     </footer>
     <div class="h-8 w-full"></div>
@@ -154,7 +158,7 @@
       menuBtn.addEventListener("click", () => {
           sidebar.classList.remove("hidden");
       });
-      
+
       closeBtn.addEventListener("click", () => {
           sidebar.classList.add("hidden");
       });
