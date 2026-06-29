@@ -1,36 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/css/output.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/output.css">
+
+    <!-- Remix Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+
+    <title>Sidebar</title>
 </head>
-<body>
-  <button id="menu-btn" class="text-3xl p-2">
-    ☰
-</button>
+<body class="bg-slate-100">
 
-<div id="sidebar"
-     class="fixed top-0 left-[-250px] h-screen w-64 bg-gray-900 transition-all duration-300">
+<div class="flex">
 
-    <button id="close-btn" class="text-2xl p-4">✕</button>
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed top-0 left-0 h-screen w-72 bg-white shadow-xl transition-all duration-300 z-50">
 
-    <a href="#" class="block p-4 hover:bg-gray-700">Home</a>
-    <a href="#" class="block p-4 hover:bg-gray-700">Projects</a>
+        <!-- Logo -->
+        <div class="flex items-center gap-4 p-6">
+
+            <div
+                class="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white font-bold text-xl">
+                CL
+            </div>
+
+            <div>
+                <h1 class="font-bold text-xl">CodingLab</h1>
+                <p class="text-gray-500 text-sm">Web Developer</p>
+            </div>
+
+        </div>
+
+        <!-- Search -->
+        <div class="px-5">
+
+            <div
+                class="flex items-center bg-violet-50 rounded-xl px-4 py-3">
+
+                <i class="ri-search-line text-xl text-gray-500"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    class="bg-transparent outline-none ml-3 w-full">
+
+            </div>
+
+        </div>
+
+        <!-- Menu -->
+        <nav class="mt-8">
+
+            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
+                <i class="ri-home-5-line text-2xl"></i>
+                Dashboard
+            </a>
+
+            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
+                <i class="ri-bar-chart-box-line text-2xl"></i>
+                Revenue
+            </a>
+
+            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
+                <i class="ri-notification-3-line text-2xl"></i>
+                Notifications
+            </a>
+
+            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
+                <i class="ri-pie-chart-line text-2xl"></i>
+                Analytics
+            </a>
+
+            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
+                <i class="ri-heart-line text-2xl"></i>
+                Likes
+            </a>
+
+            <a href="#" class="flex items-center gap-4 px-6 py-4 hover:bg-violet-50 transition">
+                <i class="ri-wallet-3-line text-2xl"></i>
+                Wallets
+            </a>
+
+        </nav>
+
+        <!-- Bottom -->
+        <div class="absolute bottom-0 w-full p-5">
+
+            <a href="#" class="flex items-center gap-4 py-3 hover:bg-violet-50 rounded-xl">
+                <i class="ri-logout-box-r-line text-2xl"></i>
+                Logout
+            </a>
+
+            <div
+                class="flex items-center justify-between mt-4 bg-violet-50 rounded-xl px-4 py-3">
+
+                <div class="flex items-center gap-4">
+
+                    <i class="ri-moon-line text-2xl"></i>
+
+                    <span>Dark Mode</span>
+
+                </div>
+
+                <button
+                    class="w-12 h-6 rounded-full bg-gray-300 relative">
+
+                    <div
+                        class="w-5 h-5 bg-white rounded-full absolute left-0.5 top-0.5"></div>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- Toggle Button -->
+    <button id="toggleBtn"
+        class="fixed top-8 left-[270px] w-10 h-10 rounded-full bg-violet-600 text-white shadow-lg z-50 transition-all duration-300">
+
+        <i id="arrow" class="ri-arrow-left-s-line text-xl"></i>
+
+    </button>
+
+    <!-- Main Content -->
+    <main id="main"
+        class="ml-72 p-10 transition-all duration-300 w-full">
+
+        <h1 class="text-4xl font-bold">Dashboard</h1>
+
+        <p class="mt-5 text-gray-600">
+            Your content goes here...
+        </p>
+
+    </main>
+
 </div>
-  <script>
-    const sidebar = document.getElementById("sidebar");
 
-document.getElementById("menu-btn").onclick = () => {
-    sidebar.classList.remove("-left-[250px]");
-    sidebar.classList.add("left-0");
-};
+<script src="../js/sidebar.js "></script>
 
-document.getElementById("close-btn").onclick = () => {
-    sidebar.classList.remove("left-0");
-    sidebar.classList.add("-left-[250px]");
-};
-  </script>
 </body>
 </html>
