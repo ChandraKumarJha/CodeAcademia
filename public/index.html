@@ -136,7 +136,7 @@
       <button id="menu-btn" class="sm:hidden">☰</button>
 
 <div id="sidebar" class="sidebar sm:flex flex-col relative h-auto w-52 gap-8 hidden ">
-    <button id="close-btn right-0 top-0">✕</button>
+    <button id="close-btn" class="right-0 top-0">✕</button>
 
     <a href="/">Home</a>
     <a href="/Courses">Courses</a>
@@ -148,16 +148,16 @@
     <script src="./js/script.js"></script>
     <script>
       const menuBtn = document.getElementById("menu-btn");
-const closeBtn = document.getElementById("close-btn");
-const sidebar = document.getElementById("sidebar");
+      const closeBtn = document.getElementById("close-btn");
+      const sidebar = document.getElementById("sidebar");
 
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.remove("hidden");
-});
-
-closeBtn.addEventListener("click", () => {
-    sidebar.classList.add("hidden");
-});
+      menuBtn.addEventListener("click", () => {
+          sidebar.classList.remove("hidden");
+      });
+      
+      closeBtn.addEventListener("click", () => {
+          sidebar.classList.add("hidden");
+      });
     </script>
   </body>
 </html>
