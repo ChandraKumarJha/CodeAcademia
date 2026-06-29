@@ -135,7 +135,7 @@
 
       <button id="menu-btn">☰</button>
 
-<div id="sidebar" class="sidebar flex flex-col relative h-auto w-[20%] gap-8">
+<div id="sidebar" class="sidebar sm:flex flex-col relative h-auto w-52 gap-8 hidden ">
     <button id="close-btn right-0 top-0">✕</button>
 
     <a href="/">Home</a>
@@ -152,11 +152,11 @@ const closeBtn = document.getElementById("close-btn");
 const sidebar = document.getElementById("sidebar");
 
 menuBtn.addEventListener("click", () => {
-    sidebar.classList.add("active");
+    sidebar.classList.remove("hidden");
 });
 
 closeBtn.addEventListener("click", () => {
-    sidebar.classList.remove("active");
+    sidebar.classList.add("hidden");
 });
     </script>
   </body>
