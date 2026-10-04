@@ -39,3 +39,8 @@ practiceSpan.addEventListener("mouseleave", () => {
     mainDiv.innerHTML = "";
     document.getElementById("practiceBox").removeChild(mainDiv);
 });
+
+const menu = document.getElementById("menu");
+menu.addEventListener("click", () => {
+    console.log("menu btn clicked");
+});

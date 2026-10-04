@@ -41,9 +41,15 @@
         }
         .menu {
             display: fixed;
-            width: 15px;
-            height: 4px;
-            color: black;
+            border: none;
+            width: 20px;
+            height: 2px;
+            background-color: black;
+        }
+        .dark .menu {
+            background-color: #f1f5f9;
+            height: 1px;
+            margin-bottom: 1.25rem;
         }
 
     </style>
@@ -52,19 +58,21 @@
     <!-- main navigation bar -->
     <nav class="fixed top-5 flex flex-row">
         
-        <button id="menu" class="fixed left-0 md:hidden">
-            <hr class="menu">
-            <hr class="menu">
-            <hr class="menu">
+
+        <button id="menu" class="fixed left-5 top-8 md:hidden">
+            <hr class="w-5 h-px mb-1.75 bg-black border-none dark:bg-slate-100">
+            <hr class="w-5 h-px mb-1.75 bg-black border-none dark:bg-slate-100">
+            <hr class="w-5 h-px mb-1.75 bg-black border-none dark:bg-slate-100">
         </button>
+        <div id="sidebar" class="fixed top-20 left-8 w-4/5 h-52 rounded-xl border border-gray-500 hidden"></div>
 
         <!-- logo -->
         <a href="/">
-            <img src="images/logo.png" alt="logo" class="h-12 rounded-xl fixed left-12">
-            <div class="fixed left-32 top-7 text-2xl font-semibold">Code Academia</div>
+            <img src="images/logo.png" alt="logo" class="h-9 md:h-12 rounded-xl fixed left-14 md:left-12">
+            <div class="fixed left-28 md:left-32 top-6 md:top-7 text-2xl font-semibold">Code Academia</div>
         </a>
 
-        <ul class="flex flex-row">
+        <ul class="md:flex md:flex-row hidden">
             <div class="w-44" id="courses">
                 <a href="/siginin" class="mt-2 ml-3 text-xl font-semibold px-4 py-1 hover:bg-slate-200 rounded-full transition-colors duration-150 ease-in">Courses <sup>&#x2304;</sup></a>
                 <div id="coursesBox" class="mt-6 text-lg font-medium"></div>
@@ -75,7 +83,7 @@
                 <div id="practiceBox" class="mt-6 text-lg font-medium"></div>
             </div>
         </ul>
-        <button id="theme-toggle" class="mt-2 text-black fixed right-12 p-2 rounded-xl dark:text-slate-300 bg-slate-200 dark:bg-slate-800 font-medium cursor-pointer 
+        <button id="theme-toggle" class="mt-2 text-black fixed right-6 md:right-12 p-2 rounded-xl dark:text-slate-300 bg-slate-200 dark:bg-slate-800 font-medium cursor-pointer 
         hover:bg-slate-300 dark:hover:bg-slate-900 flex items-center justify-center">
             <svg width="16" height="16" viewBox="0 0 12 12" xmlns="http://w3.org" class="sun-icon">
               <!-- Hollow Central Circle (Thick 1px stroke, hollow center) -->
