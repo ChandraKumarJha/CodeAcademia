@@ -39,12 +39,21 @@
         [data-theme="light"] .sun-logo {
           color: #1a1a1a !important;
         }
+        .menu {
+            width: 20px;
+        }
 
     </style>
 </head>
 <body class="bg-slate-100 dark:text-slate-100 flex items-center justify-center h-screen dark:bg-slate-950 transition-colors duration-300 ease-in ">
     <!-- main navigation bar -->
     <nav class="fixed top-5 flex flex-row">
+        
+        <button id="menu" class="md:hidden">
+            <hr class="menu">
+            <hr class="menu">
+            <hr class="menu">
+        </button>
 
         <!-- logo -->
         <a href="/">
