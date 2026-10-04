@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "node server.js",
+    "tailwind:watch": "npx @tailwindcss/cli -i ./src/main.css -o ./public/css/output.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "express": "^5.2.1",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3"
+  }
+  
+}
