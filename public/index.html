@@ -6,10 +6,40 @@
     <link rel="stylesheet" href="/css/output.css">
     <title>Code Academia</title>
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body class="bg-slate-100 flex items-center justify-center h-screen">
-    <h1 class="text-4xl font-bold text-blue-600 drop-shadow">
-        Tailwind v4 is working in Express!
-    </h1>
+<body class="bg-slate-100 flex items-center justify-center h-screen dark:bg-slate-950 ">
+    
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <h1 class="text-4xl font-bold mb-6">Tailwind v4 Theme Switcher</h1>
+        
+        <!-- Toggle Button -->
+        <button id="theme-toggle" class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 font-medium cursor-pointer">
+            Toggle Mode
+        </button>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        
+        toggleBtn.addEventListener('click', () => {
+            // Toggle the .dark class on the <html> tag
+            document.documentElement.classList.toggle('dark');
+            
+            // Persist the preference in localStorage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
