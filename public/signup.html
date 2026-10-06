@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-slate-200 text-slate-100 dark:text-slate-900 flex items-center justify-center h-screen dark:bg-slate-950 transition-colors duration-300 ease-in ">
+    <form action="/signup/form" method="POST" class="bg-zinc-900 h-4/5 w-10/12 md:w-1/2 rounded-xl flex flex-col pt-8 items-center">
+        <label for="name" class="text-center text-xl mb-3">Enter Your Name:</label>
+        <input type="text" name="name" id="name" placeholder="Username" class="input"/>
+
+        <br><br>
+
+        <label for="email" class="text-center text-xl mb-3">Enter Your Email:</label>
+        <input type="email" name="email" id="email" placeholder="Email" class="input">
+
+        <br><br>
+
+        <label for="password" class="text-center text-xl mb-3">Enter Your Password:</label>
+        <div id="password-container" class="w-5/6 relative flex items-center">
+             
+            <input type="password" name="password" id="password" placeholder="Password" class=" password ">
+            <button type="button" id="togglePassword" class="bi bi-eye-slash bg-white text-black absolute right-2 px-1 border-[0.5px] border-bg-gray-400 rounded-md 
+            hover:bg-slate-300 cursor-pointer">SHOW</button>
+        </div>
+        
+    </form>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            if(type === 'text') togglePassword.innerText = "HIDE";
+            else togglePassword.innerText = "SHOW";
+        
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    </script>
+</body>
+</html>
