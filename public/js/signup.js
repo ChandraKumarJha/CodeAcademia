@@ -115,7 +115,7 @@ form.addEventListener("submit", async (event) => {
 });
 
 document.getElementById("forgotBtn").addEventListener("click", () => {
-  showToast("Password reset flow can be connected here.");
+  window.location.href = "/signup/forgot-password";
 });
 
 document.getElementById("googleBtn").addEventListener("click", () => {

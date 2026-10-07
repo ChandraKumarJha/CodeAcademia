@@ -123,7 +123,7 @@ form.addEventListener("submit", async function (event) {
 });
 
 document.getElementById("forgotBtn").addEventListener("click", () => {
-  showToast("Password reset flow can be connected here.");
+  window.location.href = "/signin/forgot-password";
 });
 
 document.getElementById("googleBtn").addEventListener("click", () => {
@@ -135,6 +135,6 @@ document.getElementById("signupBtn").addEventListener("click", () => {
 });
 
 // Small UX improvement: remove an error as the user fixes the field.
-username.addEventListener("inuput", () => nameError.classList.add("hidden"));
+userName.addEventListener("inuput", () => nameError.classList.add("hidden"));
 email.addEventListener("input", () => emailError.classList.add("hidden"));
 password.addEventListener("input", () => passwordError.classList.add("hidden"));
