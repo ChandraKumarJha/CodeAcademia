@@ -1,8 +1,10 @@
 const form = document.getElementById("loginForm");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const emailInp = document.getElementById("email");
+const passwordInp = document.getElementById("password");
+const userName = document.getElementById("username");
 const remember = document.getElementById("remember");
 
+const nameError = document.getElementById("nameError");
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
 
@@ -55,27 +57,33 @@ togglePassword.addEventListener("click", () => {
        <circle cx="12" cy="12" r="2.5"></circle>`;
 });
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async function (event) {
   event.preventDefault();
   clearErrors();
 
-  const emailValue = email.value.trim();
-  const passwordValue = password.value;
+  const username = userName.value;  
+  const email = emailInp.value.trim();
+  const password = passwordInp.value;
+  const messageDiv = document.getElementById('responseMessage');
 
   let valid = true;
 
-  if (!emailValue) {
+  if(!username) {
+    setError(nameError, "Please enter your name");
+    valid = false;
+  }
+  if (!email) {
     setError(emailError, "Please enter your email address.");
     valid = false;
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     setError(emailError, "Please enter a valid email address.");
     valid = false;
   }
 
-  if (!passwordValue) {
+  if (!password) {
     setError(passwordError, "Please enter your password.");
     valid = false;
-  } else if (passwordValue.length < 6) {
+  } else if (password.length < 6) {
     setError(passwordError, "Password must contain at least 6 characters.");
     valid = false;
   }
@@ -83,12 +91,35 @@ form.addEventListener("submit", (event) => {
   if (!valid) return;
 
   if (remember.checked) {
-    localStorage.setItem("codeAcademiaEmail", emailValue);
+    localStorage.setItem("codeAcademiaEmail", email);
   } else {
     localStorage.removeItem("codeAcademiaEmail");
   }
 
-  window.location.href = "/form/signin";
+  try {
+    const response = await fetch('/form/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' // Telling Express we are sending JSON
+      },
+      body: JSON.stringify({ username, email, password })
+    });
+
+    const result = await response.json();
+    
+    if (response.ok) {
+      messageDiv.style.color = 'green';
+      messageDiv.textContent = result.message;
+      this.reset(); // Clear the form input elements
+    } else {
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = result.error || 'Something went wrong.';
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    messageDiv.style.color = 'red';
+    messageDiv.textContent = 'Server connection failed.';
+  }
 });
 
 document.getElementById("forgotBtn").addEventListener("click", () => {
@@ -104,5 +135,6 @@ document.getElementById("signupBtn").addEventListener("click", () => {
 });
 
 // Small UX improvement: remove an error as the user fixes the field.
+username.addEventListener("inuput", () => nameError.classList.add("hidden"));
 email.addEventListener("input", () => emailError.classList.add("hidden"));
 password.addEventListener("input", () => passwordError.classList.add("hidden"));

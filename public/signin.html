@@ -149,7 +149,7 @@
 
           <div class="mt-12 max-w-md sm:mt-16 lg:mt-24">
             <p class="mb-4 text-sm font-semibold uppercase tracking-[.25em] text-indigo-300">
-              Welcome back
+              Welcome to Code Academia
             </p>
             <h1 class="text-4xl font-black leading-[1.05] text-white sm:text-5xl">
               Turn your ideas<br />
@@ -184,20 +184,39 @@
       <div class="glass relative px-6 py-9 sm:px-10 sm:py-12 lg:px-16 lg:py-14">
 
         <div class="absolute right-6 top-6 rounded-full bg-indigo-50 px-4 py-2 text-xs font-bold text-indigo-600 sm:right-8 sm:top-8">
-          ✦ Welcome Back!
+          ✦ Welcome !
         </div>
 
         <div class="mx-auto max-w-xl">
           <div class="mb-8 mt-10 sm:mt-8">
             <h2 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
-              Login to Your Account
+              Get Started with Code Academia.
             </h2>
             <p class="mt-3 text-base leading-6 text-slate-500">
-              Continue your learning journey with CodeAcademia.
+              Start your programming journey with Code Academia.
             </p>
           </div>
 
-          <form id="loginForm" novalidate>
+          <form id="loginForm" method="POST" novalidate>
+            <!-- Username -->
+            <label for="username" class="sr-only">Email address</label>
+            <div id="nameShell" class="input-shell mb-5 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <circle cx="12" cy="8" r="4" fill="#555" />
+                <path d="M12 14c-4.42 0-8 2.58-8 6v1h16v-1c0-3.42-3.58-6-8-6z" fill="#555" />
+              </svg>
+
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="name"
+                placeholder="Username"
+                class="w-full bg-transparent text-slate-800 outline-none placeholder:text-slate-400 autofill:shadow-[inset_0_0_0px_1000px_#ffffff]"
+                required
+              />
+            </div>
+            <p id="nameError" class="mb-3 hidden text-sm font-medium text-red-500"></p>
             <!-- Email -->
             <label for="email" class="sr-only">Email address</label>
             <div id="emailShell" class="input-shell mb-5 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4">
@@ -211,7 +230,7 @@
                 type="email"
                 autocomplete="email"
                 placeholder="Email address"
-                class="w-full bg-transparent text-slate-800 outline-none placeholder:text-slate-400"
+                class="w-full bg-transparent text-slate-800 outline-none placeholder:text-slate-400 autofill:shadow-[inset_0_0_0px_1000px_#ffffff]"
                 required
               />
             </div>
@@ -256,7 +275,7 @@
                 <input
                   id="remember"
                   type="checkbox"
-                  class="h-5 w-5 rounded border-slate-300 text-indigo-600 accent-indigo-600"
+                  class="h-5 w-5 rounded border-slate-300 text-indigo-600 accent-indigo-600 autofill:shadow-[inset_0_0_0px_1000px_#ffffff]"
                 />
                 <span>Remember me</span>
               </label>
@@ -272,10 +291,12 @@
               type="submit"
               class="login-btn mt-7 flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-bold text-white"
             >
-              <span>Login</span>
+              <span>Get Started</span>
               <span class="text-xl leading-none">→</span>
             </button>
           </form>
+
+          <div id="responseMessage"></div>
 
           <!-- Divider -->
           <div class="my-8 flex items-center gap-4 text-sm font-medium text-slate-400">
@@ -300,7 +321,7 @@
           </button>
 
           <p class="mt-9 text-center text-sm text-slate-500">
-            Don't have an account?
+            Already have an account?
             <button id="signupBtn" type="button" class="font-bold text-indigo-600 hover:text-indigo-800">
               Sign Up
             </button>

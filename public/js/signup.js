@@ -1,10 +1,8 @@
 const form = document.getElementById("loginForm");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const username = document.getElementById("name");
 const remember = document.getElementById("remember");
 
-const nameError = document.getElementById("nameError");
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
 
@@ -106,6 +104,5 @@ document.getElementById("signinBtn").addEventListener("click", () => {
 });
 
 // Small UX improvement: remove an error as the user fixes the field.
-username.addEventListener("inuput", () => nameError.classList.add("hidden"));
 email.addEventListener("input", () => emailError.classList.add("hidden"));
 password.addEventListener("input", () => passwordError.classList.add("hidden"));
