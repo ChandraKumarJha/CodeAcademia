@@ -211,7 +211,7 @@
                 type="email"
                 autocomplete="email"
                 placeholder="Email address"
-                class="w-full bg-transparent text-slate-800 outline-none placeholder:text-slate-400"
+                class="w-full bg-transparent text-slate-800 outline-none placeholder:text-slate-400 autofill:shadow-[inset_0_0_0px_1000px_#ffffff]"
                 required
               />
             </div>
@@ -276,6 +276,7 @@
               <span class="text-xl leading-none">→</span>
             </button>
           </form>
+          <div id="responseMessage" class="text-center"></div>
 
           <!-- Divider -->
           <div class="my-8 flex items-center gap-4 text-sm font-medium text-slate-400">

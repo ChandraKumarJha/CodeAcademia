@@ -104,13 +104,13 @@ form.addEventListener("submit", async function (event) {
       },
       body: JSON.stringify({ username, email, password })
     });
+    console.log(username, email, password)
 
     const result = await response.json();
     
     if (response.ok) {
       messageDiv.style.color = 'green';
       messageDiv.textContent = result.message;
-      this.reset(); // Clear the form input elements
     } else {
       messageDiv.style.color = 'red';
       messageDiv.textContent = result.error || 'Something went wrong.';
