@@ -81,17 +81,31 @@
         </a>
 
         <ul class="md:flex md:flex-row hidden">
-            <div class="w-44" id="courses">
-                <a href="/courses" class="mt-2 ml-3 text-xl font-semibold px-4 py-1 hover:bg-slate-200 rounded-full transition-colors duration-150 ease-in">Courses <sup>&#x2304;</sup></a>
+            <div class="w-32 h-12  flex flex-col justify-center items-center mt-3" id="courses">
+                <a href="/courses" class="mt-2 ml-3 text-xl font-semibold px-4 py-1 
+                flex flex-col justify-center items-center hover:text-blue-600 text-center group">
+                    Courses 
+                    <div class="mt-4 h-1 w-5 rounded-full group-hover:bg-sky-400 group-hover:h-1.25
+                    group-hover:w-full transition-all duration-200"></div>
+                </a>
                 <div id="coursesBox" class="mt-6 text-lg font-medium"></div>
             </div>
-            <a href="/about" class="-mt-1 h-10 text-xl font-semibold px-4 flex justify-center items-center hover:bg-slate-200 rounded-full transition-colors duration-150 ease-in">About</a>
-            <div class="w-44 ml-16" id="practice">
-                <a href="/practice" class="mt-2  text-xl font-semibold px-4 py-1 hover:bg-slate-200 rounded-full transition-colors duration-150 ease-in">Practice <sup>&#x2304;</sup></a>
+            <a href="/about" class="h-10 text-xl font-semibold px-4 flex flex-col justify-between items-center group">
+                <span class="group-hover:text-blue-600">About</span>
+                <div class="h-1.25 w-2 rounded-full bg-transparent transition-all duration-200 group-hover:bg-sky-400 group-hover:w-full"></div>
+            </a>
+            <div class="w-32 h-12  flex flex-col justify-center items-center mt-3" id="practice">
+                <a href="/practice" class="mt-2 ml-3 text-xl font-semibold px-4 py-1 
+                flex flex-col justify-center items-center hover:text-blue-600 text-center group">
+                    Practice 
+                    <div class="mt-4 h-1 w-5 rounded-full group-hover:bg-sky-400 group-hover:h-1.25
+                    group-hover:w-full transition-all duration-200"></div>
+                </a>
                 <div id="practiceBox" class="mt-6 text-lg font-medium"></div>
             </div>
         </ul>
-        <button id="theme-toggle" class="mt-2 text-black fixed right-6 md:right-52 p-2 rounded-xl dark:text-slate-300 bg-slate-200 dark:bg-slate-800 font-medium cursor-pointer 
+        <button id="theme-toggle" class="mt-2 text-black fixed right-6 md:right-52 p-2 rounded-xl 
+        dark:text-slate-300 bg-slate-200 dark:bg-slate-800 font-medium cursor-pointer 
         hover:bg-slate-300 dark:hover:bg-slate-900 flex items-center justify-center">
             <svg width="16" height="16" viewBox="0 0 12 12" xmlns="http://w3.org" class="sun-icon">
               <!-- Hollow Central Circle (Thick 1px stroke, hollow center) -->
@@ -115,6 +129,20 @@
         rounded-xl text-slate-50 font-medium hidden md:flex fixed md:right-12">Get Started</a>
 
     </nav>
+
+    <main class="h-full flex justify-center items-center flex-col gap-4">
+        <h1 class="text-3xl p-4 text-center  font-semibold md:text-5xl">
+            Learn Full Stack Web Development 
+        </h1>
+        <h2 class="font-merriweather p-4 text-center -mt-8 font-normal text-3xl md:text-5xl">
+            with Code Academia
+        </h2>
+        <p class="text-center text-lg opacity-50 px-3">
+            Code Academia teaches Full Stack Web Development including languages like HTML, CSS, JavaScript, Node.js, and Databases...
+        </p>
+        <a href="/web-dev" class="bg-linear-to-r from-sky-600 via-indigo-500 to-violet-600 
+        px-4 py-2 rounded-xl text-slate-50 font-semibold hover:">Web Dev Courses</a>
+    </main>
 
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
