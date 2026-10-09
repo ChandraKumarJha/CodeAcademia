@@ -80,15 +80,15 @@
             <div class="fixed left-28 md:left-32 top-6 md:top-7 text-2xl font-semibold">Code Academia</div>
         </a>
 
-        <ul class="md:flex md:flex-row hidden">
-            <div class="w-32 h-12  flex flex-col justify-center items-center mt-3" id="courses">
+        <ul class="md:flex md:flex-row hidden relative">
+            <div class="absolute -left-32 flex gap-52" id="courses">
                 <a href="/courses" class="mt-2 ml-3 text-xl font-semibold px-4 py-1 
-                flex flex-col justify-center items-center hover:text-blue-600 text-center group">
+                flex flex-col justify-center items-center hover:text-blue-600 text-center group absolute">
                     Courses 
                     <div class="mt-4 h-1 w-5 rounded-full group-hover:bg-sky-400 group-hover:h-1.25
                     group-hover:w-full transition-all duration-200"></div>
                 </a>
-                <div id="coursesBox" class="mt-6 text-lg font-medium"></div>
+                <div id="coursesBox" class="text-lg font-medium absolute top-20 flex gap-5"></div>
             </div>
             <a href="/about" class="h-10 text-xl font-semibold px-4 flex flex-col justify-between items-center group">
                 <span class="group-hover:text-blue-600">About</span>
