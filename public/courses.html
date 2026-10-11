@@ -6,8 +6,94 @@
     <title>Courses</title>
     <link rel="stylesheet" href="/css/output.css">
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6e037d5a8d.js" crossorigin="anonymous"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body>
+<body class="bg-slate-100 dark:text-slate-100 flex flex-col min-h-screen dark:bg-slate-950 transition-colors duration-300 ease-in pt-24">
     
+    <!--Nav is now pinned cleanly to the top, left, and right with padding instead of nested absolute hacks -->
+    <nav class="fixed top-0 left-0 right-0 h-20 bg-white dark:bg-slate-900 border-b border-gray-600/30 flex items-center justify-between px-6 md:px-12 z-50">
+        
+        <!-- Left Side: Mobile Menu & Logo Combo -->
+        <div class="flex items-center gap-4">
+            <!-- Mobile Menu Trigger -->
+            <button id="menu" class="md:hidden flex flex-col gap-1.5 focus:outline-none">
+                <hr class="w-5 h-0.5 bg-black dark:bg-slate-100 border-none">
+                <hr class="w-5 h-0.5 bg-black dark:bg-slate-100 border-none">
+                <hr class="w-5 h-0.5 bg-black dark:bg-slate-100 border-none">
+            </button>
+
+            <!-- Brand Logo & Text Grouped Logically -->
+            <a href="/" class="flex items-center gap-3">
+                <img src="/images/logo.png" alt="logo" class="h-9 md:h-12 rounded-xl">
+                <span class="text-xl md:text-2xl font-semibold hidden sm:inline">Code Academia</span>
+            </a>
+        </div>
+
+        <!-- Mobile Dropdown Sidebar (Scoped inside absolute terms relative to nav boundary) -->
+        <div id="sidebar" class="absolute top-24 left-6 right-6 bg-white dark:bg-slate-900 rounded-xl border border-gray-500 shadow-lg hidden flex-col overflow-hidden">
+            <a href="/courses" class="w-full flex items-center py-3 pl-5 text-lg hover:bg-slate-100 dark:hover:bg-slate-800">Courses</a>            
+            <a href="/about" class="w-full flex items-center py-3 pl-5 text-lg hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+            <a href="/practice" class="w-full flex items-center py-3 pl-5 text-lg hover:bg-slate-100 dark:hover:bg-slate-800">Practice</a>
+            <a href="/signup" class="p-3">
+                <div class="w-full py-2.5 bg-slate-950 dark:bg-slate-400 rounded-lg flex justify-center items-center text-slate-100 dark:text-slate-800 font-medium">Get Started</div>
+            </a>
+        </div>
+
+        <!-- Center Side: Search Form behaves dynamically -->
+        <form action="" class="flex-1 max-w-md mx-6 relative items-center hidden sm:flex">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400"></i>
+            <input type="text" name="search" id="searchInp" placeholder="Search Courses..." 
+                   class="w-full pl-9 pr-4 py-1.5 bg-slate-200 dark:bg-slate-800 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"/>
+        </form>
+        <button id="mobile-search" class="md:hidden relative flex items-center">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 text-xl text-gray-400"></i>
+        </button>
+        
+        <!-- Right Side: Profile Action Link -->
+        <a href="/profile" class="flex items-center gap-2 hover:opacity-80 hover:bg-slate-200 dark:hover:bg-slate-800 hover:underline px-4 py-2 rounded-xl">
+            <div id="user-logo" class="h-6 w-6 rounded-full text-sm flex items-center justify-center text-white"></div>
+            <span id="user" class="hidden md:inline font-medium"></span>
+        </a>
+        
+    </nav>
+
+    <!-- Page Body Elements Container -->
+    <main class="flex-1 flex">
+        <aside class="w-64 hidden md:block border-r border-gray-600/30 p-5">
+            <!-- Sidebar Content Here -->
+            <div class="">
+                <p class="text-lg font-semibold tracking-wide">Explore</p>
+                <button class="p-4 dark:hover:bg-blue-800">
+                    <div class="">
+                        <div class=""></div>
+                        <div class=""></div>
+                        <div class=""></div>
+                        <div class=""></div>
+                    </div>
+                    <span>All Courses</span>
+                </button>
+                <button class="">
+
+                </button>
+                <button class="">
+
+                </button>
+            </div>
+        </aside>
+        
+        <section class="flex-1 p-6">
+            <!-- Main Content Area goes here -->
+            <h1 class="text-3xl font-bold">Welcome to Code Academia</h1>
+        </section>
+    </main>
+    <script src="/js/courses.js"></script>
 </body>
 </html>

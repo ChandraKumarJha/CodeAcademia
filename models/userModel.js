@@ -22,6 +22,10 @@ const UserSchema = new Schema({
         points: {
             type: Number,
             default: 0
+        },
+        userLogoBG: {
+            type: String,
+            required: true
         }
     },
     {
