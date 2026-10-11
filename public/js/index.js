@@ -9,72 +9,75 @@ coursesSpan.addEventListener("mouseenter", () => {
     //coursesSpan.classList.add("h-72");
     const mainDiv = document.createElement("div");
     mainDiv.id = "coursesOptions";
-    mainDiv.classList.add("w-[600px]", "flex", "gap-3");
+    mainDiv.classList.add("w-[400px]", "flex", "gap-3");
     mainDiv.innerHTML = `
-    <div>
-        <div class="font-normal opacity-40">Full Stack Web Development</div>
-        <div class="flex gap-3 flex-col">
-        <a href="/web-dev/html" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-            <div class="relative">
-                <i class="fa-brands fa-html5 text-red-600"></i>
-                <span>HTML</span>
+    <div class="flex flex-col gap-3">
+        <div class="font-normal opacity-40">Explore Courses in Code Academia</div>
+        <a href="/courses/web-development" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+            <div class="relative flex items-center gap-2">
+                <span>MERN Stack</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="78" height="20" viewBox="0 0 78 20" role="img" aria-labelledby="title">
+                  <title id="title">MERN Stack</title>
+
+                  <!-- Tailwind bg-slate-100 equivalent hex (#F1F5F9) -->
+                  <rect width="78" height="20" rx="4" fill="transparent"/>
+
+                  <!-- M - MongoDB-inspired leaf -->
+                  <path d="M8 3.2C5.3 6.3 4.4 8.5 5.3 11.5c.5 1.8 1.6 3 2.7 4.1 1.1-1.1 2.2-2.3 2.7-4.1C11.6 8.5 10.7 6.3 8 3.2Z" fill="#13AA52"/>
+                  <path d="M8 5.2v11" stroke="#8BE3A8" stroke-width=".65" stroke-linecap="round"/>
+
+                  <!-- E - Express (Adjusted for high contrast on light bg) -->
+                  <circle cx="28" cy="10" r="7" fill="#1E293B" stroke="#475569" stroke-width=".7"/>
+                  <text x="28" y="12.3" text-anchor="middle" font-family="Arial,sans-serif" font-size="7.2" font-weight="700" fill="#FFFFFF">ex</text>
+
+                  <!-- R - React (Darkened background fill slightly to stand out against light slate) -->
+                  <circle cx="47" cy="10" r="7.5" fill="#0F172A" opacity="0.08"/>
+                  <g transform="translate(47 10)" fill="none" stroke="#0088CC" stroke-width="1.05">
+                    <ellipse rx="7.2" ry="2.8"/>
+                    <ellipse rx="7.2" ry="2.8" transform="rotate(60)"/>
+                    <ellipse rx="7.2" ry="2.8" transform="rotate(120)"/>
+                  </g>
+                  <circle cx="47" cy="10" r="1.2" fill="#0088CC"/>
+
+                  <!-- N - Node.js (Darkened text fill for crisp legibility) -->
+                  <path d="M64 6.1 69 3.2 74 6.1v7.1L69 16l-5-2.8Z" fill="none" stroke="#336633" stroke-width="1.2" stroke-linejoin="round"/>
+                  <text x="69" y="12.2" text-anchor="middle" font-family="Arial,sans-serif" font-size="5.4" font-weight="700" fill="#224422">JS</text>
+                </svg>
                 <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
             </div>
-            <span class="text-sm font-normal opacity-40">Learn All concepts of HTML with Code Academia</span>
+            <span class="text-sm font-normal opacity-40">Learn Full Stack Web Development with Code Academia</span>
         </a>
-        <a href="/web-dev/css" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-            <div class="relative">
-                <i class="fa-brands fa-css3-alt text-blue-500"></i>
-                <span>CSS</span>
-                <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-            </div>
-            <span class="text-sm font-normal opacity-40">Master All concepts of Styling with Code Academia</span>
-        </a>
-        <a href="/web-dev/javascript" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-            <div class="relative">
-                <i class="fa-brands fa-js text-yellow-500"></i>
-                <span>JavaScript</span>
-                <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-            </div>
-            <span class="text-sm font-normal opacity-40">Learn All concepts of Javascript with Code Academia</span>
-        </a>
-        </div>
-    </div>
-    <div>
-        <div class="flex gap-3 flex-col">
-        <a href="/web-dev/nodejs" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-            <div class="relative">
-                <i class="fa-brands fa-node text-green-600"></i>
-                <span>Node.js</span>
-                <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-            </div>
-            <span class="text-sm font-normal opacity-40">Learn server making in Node.js with Code Academia</span>
-        </a>
-        <a href="/web-dev/reactjs" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-            <div class="relative">
-                <i class="fa-brands fa-react text-sky-600"></i>
-                <span>React.js</span>
-                <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-            </div>
-            <span class="text-sm font-normal opacity-40">Learn UI making in React.js with Code Academia</span>
-        </a>
-        <a href="/web-dev/mongodb" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-            <div class="relative ">
-                <div class="flex gap-2">
-                    <div class="h-6 w-6 rounded-full border border-slate-300 flex items-center justify-center">
-                        <svg xmlns="http://w3.org" viewBox="0 0 20 20" width="20" height="20">
-                          <path d="M10 1 C7.6 4.4 5 9 5 12.4 C5 15.6 7 19 10 19 Z" fill="#118D4F" />
-                          <path d="M10 1 C12.4 4.4 15 9 15 12.4 C15 15.6 13 19 10 19 Z" fill="#13AA52" />
-                          <path d="M10 3 L10 17" stroke="#49C778" stroke-width="0.8" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <span>Mongo DB</span>
+
+        <a href="/courses/git-github" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+            <div>
+                <div class="relative flex items-center gap-2">
+                    <span>Git & Github</span>
+                    <img src="/images/git.png" class="h-5"/>
                     <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
                 </div>
+                <span class="text-sm font-normal opacity-40">Learn How to organise your code with Git & Github</span>
             </div>
-            <span class="text-sm font-normal opacity-40">Learn server making in Node.js with Code Academia</span>
         </a>
-        </div>
+        <a href="/courses/python" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+            <div>
+                <div class="relative flex items-center gap-2">
+                    <span>Python Development</span>
+                    <img src="/images/python.png" class="h-5 bg-transparent"/>
+                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
+                </div>
+                <span class="text-sm font-normal opacity-40">Learn Beginner to Advance Python concepts with Code Academia</span>
+            </div>
+        </a>
+        <a href="/courses/dsa" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+            <div>
+                <div class="relative flex items-center gap-2">
+                    <span>Data Structures & Algorithms</span>
+                    <img src="/images/cpp.png" class="h-5"/>
+                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
+                </div>
+                <span class="text-sm font-normal opacity-40">Learn Full Data Structures and Algorithms in C++</span>
+            </div>
+        </a>
     </div>
     `
     document.getElementById("coursesBox").appendChild(mainDiv);

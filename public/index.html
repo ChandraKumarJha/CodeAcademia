@@ -76,7 +76,7 @@
 
         <!-- logo -->
         <a href="/">
-            <img src="images/logo.png" alt="logo" class="h-9 md:h-12 rounded-xl fixed left-14 md:left-12">
+            <img src="/images/logo.png" alt="logo" class="h-9 md:h-12 rounded-xl fixed left-14 md:left-12">
             <div class="fixed left-28 md:left-32 top-6 md:top-7 text-2xl font-semibold">Code Academia</div>
         </a>
 
@@ -102,76 +102,28 @@
                     group-hover:w-full transition-all duration-200"></div>
                 </div>
             
-                <div id="practiceBox" class="hidden absolute top-17 w-150 rounded-xl border border-slate-300 px-8 py-6 bg-slate-100 dark:bg-slate-950 gap-6 z-50">
-                    <div class="">
-                        <span class="font-normal text-[1rem] opacity-40 mb-3">Practice and improve Web Development</span>
-                    </div>
-                    <div class="flex gap-3">
-                    <div>
-                        <div class="flex gap-3 flex-col">
-                            <a href="/web-dev/practice/html" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-                                <div class="relative">
-                                    <i class="fa-brands fa-html5 text-red-600"></i>
-                                    <span class="ml-1 font-medium">HTML</span>
-                                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-                                </div>
-                                <span class="text-sm font-normal opacity-40 mt-1">Practice HTML programming </span>
-                            </a>
-                            <a href="/web-dev/practice/css" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-                                <div class="relative">
-                                    <i class="fa-brands fa-css3-alt text-blue-500"></i>
-                                    <span class="ml-1 font-medium">CSS</span>
-                                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-                                </div>
-                                <span class="text-sm font-normal opacity-40 mt-1">Practice beginner to advanced Styling </span>
-                            </a>
-                            <a href="/web-dev/practice/javascript" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-                                <div class="relative">
-                                    <i class="fa-brands fa-js text-yellow-500"></i>
-                                    <span class="ml-1 font-medium">JavaScript</span>
-                                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-                                </div>
-                                <span class="text-sm font-normal opacity-40 mt-1">Practice JS logic with Code Academia</span>
-                            </a>
+                <div id="practiceBox" class="hidden absolute top-17 w-150 rounded-xl border border-slate-300 px-8 py-6 bg-slate-100 dark:bg-slate-950 gap-3 z-50">
+                    <span class="font-normal text-[1rem] opacity-40 mb-3">Practice and Prove your learning</span>
+                    <a href="/practice" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+                        <div>
+                            <div class="relative flex items-center gap-2">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span>Improve and Practice Every concept you know</span>
+                                <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
+                            </div>
+                            <span class="text-sm font-normal opacity-40">Learn Full Data Structures and Algorithms in C++</span>
                         </div>
-                    </div>
-                    <div>
-                        <div class="flex gap-3 flex-col">
-                            <a href="/web-dev/practice/nodejs" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-                                <div class="relative">
-                                    <i class="fa-brands fa-node text-green-600"></i>
-                                    <span class="ml-1 font-medium">Node.js</span>
-                                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-                                </div>
-                                <span class="text-sm font-normal opacity-40 mt-1">Code Academia also teaches Server making and client handling</span>
-                            </a>
-                            <a href="/web-dev/practice/reactjs" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-                                <div class="relative">
-                                    <i class="fa-brands fa-react text-sky-600"></i>
-                                    <span class="ml-1 font-medium">React.js</span>
-                                    <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-                                </div>
-                                <span class="text-sm font-normal opacity-40 mt-1">Master UI components making in React.js</span>
-                            </a>
-                            <a href="/web-dev/practice/mongodb" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
-                                <div class="relative">
-                                    <div class="flex gap-2 items-center">
-                                        <div class="h-5 w-5 rounded-full border border-slate-300 flex items-center justify-center bg-white dark:bg-slate-900">
-                                            <svg xmlns="http://w3.org" viewBox="0 0 20 20" width="14" height="14">
-                                              <path d="M10 1 C7.6 4.4 5 9 5 12.4 C5 15.6 7 19 10 19 Z" fill="#118D4F" />
-                                              <path d="M10 1 C12.4 4.4 15 9 15 12.4 C15 15.6 13 19 10 19 Z" fill="#13AA52" />
-                                              <path d="M10 3 L10 17" stroke="#49C778" stroke-width="0.8" stroke-linecap="round" />
-                                            </svg>
-                                        </div>
-                                        <span class="font-medium">MongoDB</span>
-                                        <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
-                                    </div>
-                                </div>
-                                <span class="text-sm font-normal opacity-40 mt-1">Practice Schemas, database, and many more with Code Academia</span>
-                            </a>
+                    </a>
+                    <a href="/codeLab" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+                        <div>
+                            <div class="relative flex items-center gap-2">
+                                <img src="/images/codeLab.png" alt="codeLab logo" class="h-5"/>
+                                <span>CodeLab</span>
+                                <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
+                            </div>
+                            <span class="text-sm font-normal opacity-40">CodeLab - Your own IDE for practicing progamming</span>
                         </div>
-                    </div>
-                    </div>
+                    </a>
                 </div>
             </li>
 
@@ -212,8 +164,8 @@
             Code Academia teaches Full Stack Web Development including languages like HTML, CSS, JavaScript, Node.js, and Databases...
         </p>
         <!-- Fixed: Cleared broken trailing hover utility string format -->
-        <a href="/web-dev" class="bg-linear-to-r from-indigo-500 to-purple-500 
-        px-4 py-2 rounded-xl text-slate-50 font-semibold hover:opacity-90">Web Dev Courses</a>
+        <a href="/courses" class="bg-linear-to-r from-indigo-500 to-purple-500 
+        px-4 py-2 rounded-xl text-slate-50 font-semibold hover:opacity-90">Explore Courses</a>
     </main>
 
     <script>

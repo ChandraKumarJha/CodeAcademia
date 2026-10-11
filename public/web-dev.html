@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-slate-100 dark:text-slate-100 flex items-center justify-center h-screen dark:bg-slate-950 transition-colors duration-300 ease-in ">
+    <nav class="flex fixed top-5 w-screen">
+        <!-- sidebar for mobile -->
+        <button id="menu" class="fixed left-5 top-8 md:hidden">
+            <hr class="w-5 h-px mb-1.75 bg-black border-none dark:bg-slate-100">
+            <hr class="w-5 h-px mb-1.75 bg-black border-none dark:bg-slate-100">
+            <hr class="w-5 h-px mb-1.75 bg-black border-none dark:bg-slate-100">
+        </button>
+        <div id="sidebar" class="fixed top-20 left-8 w-4/5 h-52 rounded-xl border border-gray-500 hidden">
+            <a href="/courses" class="w-full flex items-center h-1/4 pl-5 text-lg">Courses</a>            
+            <a href="/about" class="w-full flex items-center h-1/4 pl-5 text-lg">About</a>
+            <a href="/practice" class="w-full flex items-center h-1/4 pl-5 text-lg">Practice</a>
+            <a href="/signup" class="w-full flex items-center h-1/4">
+                <div class="h-3/4 w-full bg-slate-950 dark:bg-slate-400 rounded-lg m-3 flex justify-center 
+                items-center text-slate-100 dark:text-slate-800">Get Started</div>
+            </a>
+        </div>
+        <!-- logo -->
+        <a href="/" class="">
+            <img src="/images/logo.png" alt="logo" class="h-9 md:h-12 rounded-xl fixed left-14 md:left-12">
+            <div class="fixed left-28 md:left-32 top-6 md:top-7 text-2xl font-semibold">Code Academia</div>
+        </a>
+    </nav>
+    <aside class="">
+        
+    </aside>
+
+    <script src="/js/web-dev.js"></script>
+</body>
+</html>

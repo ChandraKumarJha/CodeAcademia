@@ -96,6 +96,10 @@ app.post('/form/signup', async (req, res) => {
     }
 });
 
+app.get('/courses', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'courses.html'))
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
