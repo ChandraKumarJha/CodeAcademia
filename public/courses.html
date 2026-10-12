@@ -15,11 +15,17 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+
+    <style>
+        .check {
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body class="bg-slate-100 dark:text-slate-100 flex flex-col min-h-screen dark:bg-slate-950 transition-colors duration-300 ease-in pt-24">
     
     <!--Nav is now pinned cleanly to the top, left, and right with padding instead of nested absolute hacks -->
-    <nav class="fixed top-0 left-0 right-0 h-20 bg-white dark:bg-slate-900 border-b border-gray-600/30 flex items-center justify-between px-6 md:px-12 z-50">
+    <nav class="fixed top-0 left-0 right-0 h-20 bg-white dark:bg-sky-950/5 border-b border-gray-600/30 flex items-center justify-between px-6 md:px-12 z-50">
         
         <!-- Left Side: Mobile Menu & Logo Combo -->
         <div class="flex items-center gap-4">
@@ -50,8 +56,8 @@
         <!-- Center Side: Search Form behaves dynamically -->
         <form action="" class="flex-1 max-w-md mx-6 relative items-center hidden sm:flex">
             <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400"></i>
-            <input type="text" name="search" id="searchInp" placeholder="Search Courses..." 
-                   class="w-full pl-9 pr-4 py-1.5 bg-slate-200 dark:bg-slate-800 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"/>
+            <input type="text" name="search" placeholder="Search Courses..." 
+                   class="searchInp w-full pl-9 pr-4 py-1.5 bg-slate-200 dark:bg-slate-800 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"/>
         </form>
         <button id="mobile-search" class="md:hidden relative flex items-center">
             <i class="fa-solid fa-magnifying-glass absolute left-3 text-xl text-gray-400"></i>
@@ -67,31 +73,239 @@
 
     <!-- Page Body Elements Container -->
     <main class="flex-1 flex">
-        <aside class="w-64 hidden md:block border-r border-gray-600/30 p-5">
+        <aside class="w-64 hidden md:block dark:bg-sky-950/5 border-r border-gray-600/30 p-5 -mt-4">
             <!-- Sidebar Content Here -->
-            <div class="">
+            <div class="flex flex-col gap-2">
                 <p class="text-lg font-semibold tracking-wide">Explore</p>
-                <button class="p-4 dark:hover:bg-blue-800">
-                    <div class="">
-                        <div class=""></div>
-                        <div class=""></div>
-                        <div class=""></div>
-                        <div class=""></div>
+                <button class="group px-4 py-2 hover:bg-slate-300 dark:hover:bg-blue-700 rounded-xl flex gap-3 cursor-pointer">
+                    <div class="transition-transform duration-500 ease-out group-hover:bg-transparent group-hover:rotate-180 h-5 w-5 relative flex flex-col">
+                        <div class="h-2.25 w-2.25 border-[1.5px] border-slate-800 dark:border-slate-100 rounded-xs absolute top-0 left-0"></div>
+                        <div class="h-2.25 w-2.25 border-[1.5px] border-slate-800 dark:border-slate-100 rounded-xs absolute bottom-0 left-0"></div>
+                        <div class="h-2.25 w-2.25 border-[1.5px] border-slate-800 dark:border-slate-100 rounded-xs absolute top-0 right-0"></div>
+                        <div class="h-2.25 w-2.25 border-[1.5px] border-slate-800 dark:border-slate-100 rounded-xs absolute bottom-0 right-0"></div>
                     </div>
                     <span>All Courses</span>
                 </button>
-                <button class="">
-
+                <button class="px-4 py-2 hover:bg-slate-300 dark:hover:bg-blue-700 rounded-xl flex items-center gap-3 cursor-pointer">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>My Learning</span>
                 </button>
-                <button class="">
-
+                <button class="px-4 py-2 hover:bg-slate-300 dark:hover:bg-blue-700 rounded-xl flex items-center gap-3 cursor-pointer">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Certificates</span>
                 </button>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="mt-3 mb-3 w-11/12 h-px bg-gray-600/30 dark:bg-gray-600/30"></div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <p class="text-lg font-semibold tracking-wide">Filters</p>
+                <legend>Categories</legend>
+
+                <div class="flex flex-col gap-1">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer sr-only" id="web-dev" />
+                        <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                        bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                        peer-checked:border-0
+                        transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3"
+                                class="h-3.5 w-3.5" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                            </svg>
+                        </span>
+                        <pre class="font-mono check"> Web Development</pre>
+                    </label>
+
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer sr-only" id="db_&_sesrver"/>
+                        <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                        bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                        peer-checked:border-0
+                        transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3"
+                                class="h-3.5 w-3.5" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                            </svg>
+                        </span>
+                        <pre class="font-mono check"> Database & Server</pre>
+                    </label>
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer sr-only" id="programming-lang"/>
+                        <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                        bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                        peer-checked:border-0
+                        transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3"
+                                class="h-3.5 w-3.5" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                            </svg>
+                        </span>
+                        <pre class="font-mono check"> Programming Languages</pre>
+                    </label>
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer sr-only" id="app-dev"/>
+                        <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                        bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                        peer-checked:border-0
+                        transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3"
+                                class="h-3.5 w-3.5" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                            </svg>
+                        </span>
+                        <pre class="font-mono check"> App development</pre>
+                    </label>
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="peer sr-only" id="all-filters" checked/>
+                        <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                        bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                        peer-checked:border-0
+                        transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3"
+                                class="h-3.5 w-3.5" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                            </svg>
+                        </span>
+                        <pre class="font-mono check"> All</pre>
+                    </label>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="mt-4 mb-3 w-11/12 h-px bg-gray-600/30 dark:bg-gray-600/30"></div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <p class="text-lg font-semibold tracking-wide">Level</p>
+
+                <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="peer sr-only" id="beginner"/>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                    bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                    peer-checked:border-0
+                    transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="3"
+                            class="h-3.5 w-3.5" >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                        </svg>
+                    </span>
+                    <pre class="font-mono check"> Beginner</pre>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="peer sr-only" id="inermediate"/>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                    bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                    peer-checked:border-0
+                    transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="3"
+                            class="h-3.5 w-3.5" >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                        </svg>
+                    </span>
+                    <pre class="font-mono check"> Inermediate</pre>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="peer sr-only" id="advanced"/>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                    bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                    peer-checked:border-0
+                    transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="3"
+                            class="h-3.5 w-3.5" >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                        </svg>
+                    </span>
+                    <pre class="font-mono check"> Advanced</pre>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="peer sr-only" id="all-level" checked/>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-md 
+                    bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
+                    peer-checked:border-0
+                    transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="3"
+                            class="h-3.5 w-3.5" >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
+                        </svg>
+                    </span>
+                    <pre class="font-mono check"> All</pre>
+                </label>
             </div>
         </aside>
         
         <section class="flex-1 p-6">
             <!-- Main Content Area goes here -->
-            <h1 class="text-3xl font-bold">Welcome to Code Academia</h1>
+            <div class="rounded-2xl border border-gray-600/30 -mt-5">
+                <div class="flex flex-col gap-3 p-4 rounded-2xl dark:bg-sky-950/5">
+                    <div>
+                        <a href="/" class="hover:opacity-90 opacity-70">
+                            <i class="fa-regular fa-house"></i>
+                        </a>
+                        &gt;
+                        <a href="/courses" class="hover:opacity-90 opacity-70">
+                            <span>Courses</span>
+                        </a>
+                        &gt;
+                        <span class="opacity-70">
+                            <span class="category">All</span>
+                            Courses
+                        </span>
+                    </div>
+                    <h1 class="text-4xl flex gap-4 font-semibold">
+                        <div class="">Explore <span class="category">All</span></div>
+                        <span class="bg-linear-to-r from-sky-600 to-indigo-500 bg-clip-text text-transparent font-[650px]">Courses</span>
+                    </h1>
+                    <p class="opacity-90">Learn in-demand skills, build real projects and take your <br>programming journey to the next level.</p>
+
+                    <div class="grid grid-cols-2 grid-rows-2 w-1/2">
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-play bg-blue-600/40 p-2 rounded-full"></i>
+                            <div class="flex flex-col">
+                                <p>Expert Instructors</p>
+                                <p class="opacity-50">Learn from industry experts</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-code bg-blue-600/40 p-2 rounded-full"></i>
+                            <div class="flex flex-col">
+                                <p>Hand-on Projects</p>
+                                <p class="opacity-50">Build real world projects</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-graduation-cap bg-blue-600/40 p-2 rounded-full"></i>
+                            <div class="flex flex-col">
+                                <p>Certificates</p>
+                                <p class="opacity-50">Showcase your skill</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-bolt bg-blue-600/40 p-2 rounded-full"></i>
+                            <div class="flex flex-col">
+                                <p>Life Time Access</p>
+                                <p class="opacity-50">Learn at your own pace and master it</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="" alt="" class="">
+            </div>
+            <form action="" class="flex-1 max-w-md mx-6 relative items-center hidden sm:flex mt-3">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400"></i>
+                <input type="text" name="search" placeholder="Search Courses..." 
+                       class="searchInp w-full pl-9 pr-4 py-1.5 bg-slate-200 dark:bg-slate-800 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"/>
+            </form>
+            <div id="cardGrid" class="grid grid-cols-4 auto-rows-auto mt-4 gap-4">
+
+            </div>
         </section>
     </main>
     <script src="/js/courses.js"></script>
