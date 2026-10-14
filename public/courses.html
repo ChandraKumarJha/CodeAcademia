@@ -25,7 +25,7 @@
 <body class="bg-slate-100 dark:text-slate-100 flex flex-col min-h-screen dark:bg-slate-950 transition-colors duration-300 ease-in pt-24">
     
     <!--Nav is now pinned cleanly to the top, left, and right with padding instead of nested absolute hacks -->
-    <nav class="fixed top-0 left-0 right-0 h-20 bg-white dark:bg-sky-950/5 border-b border-gray-600/30 flex items-center justify-between px-6 md:px-12 z-50">
+    <nav class="fixed top-0 left-0 right-0 h-20 bg-white dark:bg-sky-950/5 border-b border-gray-600/30 flex items-center justify-between px-3 sm:px-6 md:px-12 gap-2 z-50 backdrop-blur-sm">
         
         <!-- Left Side: Mobile Menu & Logo Combo -->
         <div class="flex items-center gap-4">
@@ -64,16 +64,19 @@
         </button>
         
         <!-- Right Side: Profile Action Link -->
-        <a href="/profile" class="flex items-center gap-2 hover:opacity-80 hover:bg-slate-200 dark:hover:bg-slate-800 hover:underline px-4 py-2 rounded-xl">
-            <div id="user-logo" class="h-6 w-6 rounded-full text-sm flex items-center justify-center text-white"></div>
+        <a href="/profile" class="flex items-center gap-2 shrink-0 hover:opacity-80 hover:bg-slate-200 dark:hover:bg-slate-800 px-2 sm:px-4 py-2 rounded-xl">
+            <div id="user-logo" class="h-6 w-6 shrink-0 rounded-full text-sm flex items-center justify-center text-white"></div>
             <span id="user" class="hidden md:inline font-medium"></span>
         </a>
         
     </nav>
 
     <!-- Page Body Elements Container -->
-    <main class="flex-1 flex">
-        <aside class="w-64 hidden md:block dark:bg-sky-950/5 border-r border-gray-600/30 p-5 -mt-4">
+    <main class="flex-1 min-w-0">
+        <aside class="fixed top-20 left-0 bottom-0 w-64 hidden md:block
+             dark:bg-sky-950/5 bg-slate-100
+             border-r border-gray-600/30 p-5
+             overflow-y-auto z-40">
             <!-- Sidebar Content Here -->
             <div class="flex flex-col gap-2">
                 <p class="text-lg font-semibold tracking-wide">Explore</p>
@@ -241,7 +244,7 @@
             </div>
         </aside>
         
-        <section class="flex-1 p-6">
+        <section class="min-w-0 p-3 sm:p-4 md:p-6 md:ml-64">
             <!-- Main Content Area goes here -->
             <div class="rounded-2xl border border-gray-600/30 -mt-5">
                 <div class="flex flex-col gap-3 p-4 rounded-2xl dark:bg-sky-950/5">
@@ -259,13 +262,15 @@
                             Courses
                         </span>
                     </div>
-                    <h1 class="text-4xl flex gap-4 font-semibold">
-                        <div class="">Explore <span class="category">All</span></div>
-                        <span class="bg-linear-to-r from-sky-600 to-indigo-500 bg-clip-text text-transparent font-[650px]">Courses</span>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl flex flex-wrap gap-x-2 gap-y-1 font-semibold">
+                        <span>Explore <span class="category">All</span></span>
+                        <span class="bg-linear-to-r from-sky-600 to-indigo-500 bg-clip-text text-transparent">
+                            Courses
+                        </span>
                     </h1>
-                    <p class="opacity-90">Learn in-demand skills, build real projects and take your <br>programming journey to the next level.</p>
+                    <p class="opacity-90 leading-relaxed">Learn in-demand skills, build real projects and take your programming journey to the next level.</p>
 
-                    <div class="grid grid-cols-2 grid-rows-2 w-1/2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:max-w-2xl">
                         <div class="flex gap-2 items-center">
                             <i class="fa-solid fa-play bg-blue-600/40 p-2 rounded-full"></i>
                             <div class="flex flex-col">
@@ -303,7 +308,8 @@
                 <input type="text" name="search" placeholder="Search Courses..." 
                        class="searchInp w-full pl-9 pr-4 py-1.5 bg-slate-200 dark:bg-slate-800 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"/>
             </form>
-            <div id="cardGrid" class="grid grid-cols-4 auto-rows-auto mt-4 gap-4">
+            <div id="cardGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
+            2xl:grid-cols-4 auto-rows-fr mt-6 gap-5">
 
             </div>
         </section>
