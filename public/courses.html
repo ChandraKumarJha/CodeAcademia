@@ -73,7 +73,7 @@
 
     <!-- Page Body Elements Container -->
     <main class="flex-1 min-w-0">
-        <aside class="fixed top-20 left-0 bottom-0 w-64 hidden md:block
+        <aside class="fixed top-20 left-0 bottom-0 w-70 hidden md:block
              dark:bg-sky-950/5 bg-slate-100
              border-r border-gray-600/30 p-5
              overflow-y-auto z-40">
@@ -107,7 +107,7 @@
 
                 <div class="flex flex-col gap-1">
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="peer sr-only" id="web-dev" />
+                        <input type="checkbox" class="category-filter peer sr-only" value="Web Development" />
                         <span class="flex h-5 w-5 items-center justify-center rounded-md 
                         bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                         peer-checked:border-0
@@ -119,10 +119,11 @@
                             </svg>
                         </span>
                         <pre class="font-mono check"> Web Development</pre>
+                        <div class="text-right w-full text-xs check">7</div>
                     </label>
 
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="peer sr-only" id="db_&_sesrver"/>
+                        <input type="checkbox" class="category-filter peer sr-only" value="Database & Server" />
                         <span class="flex h-5 w-5 items-center justify-center rounded-md 
                         bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                         peer-checked:border-0
@@ -134,9 +135,10 @@
                             </svg>
                         </span>
                         <pre class="font-mono check"> Database & Server</pre>
+                        <div class="text-right w-full text-xs check">2</div>
                     </label>
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="peer sr-only" id="programming-lang"/>
+                        <input type="checkbox" class="category-filter peer sr-only" value="Programming Languages" />
                         <span class="flex h-5 w-5 items-center justify-center rounded-md 
                         bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                         peer-checked:border-0
@@ -148,9 +150,10 @@
                             </svg>
                         </span>
                         <pre class="font-mono check"> Programming Languages</pre>
+                        <div class="text-right w-full text-xs check">6</div>
                     </label>
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="peer sr-only" id="app-dev"/>
+                        <input type="checkbox" class="category-filter peer sr-only" value="Others" />
                         <span class="flex h-5 w-5 items-center justify-center rounded-md 
                         bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                         peer-checked:border-0
@@ -161,10 +164,11 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 9.5 17 19 7" />
                             </svg>
                         </span>
-                        <pre class="font-mono check"> App development</pre>
+                        <pre class="font-mono check"> Others</pre>
+                        <div class="text-right w-full text-xs check">1</div>
                     </label>
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="peer sr-only" id="all-filters" checked/>
+                        <input type="checkbox" class="category-all peer sr-only" checked />
                         <span class="flex h-5 w-5 items-center justify-center rounded-md 
                         bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                         peer-checked:border-0
@@ -176,6 +180,7 @@
                             </svg>
                         </span>
                         <pre class="font-mono check"> All</pre>
+                        <div class="text-right w-full text-xs check">16</div>
                     </label>
                 </div>
             </div>
@@ -186,7 +191,7 @@
                 <p class="text-lg font-semibold tracking-wide">Level</p>
 
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="peer sr-only" id="beginner"/>
+                    <input type="checkbox" class="level-filter peer sr-only" value="Beginner"/>
                     <span class="flex h-5 w-5 items-center justify-center rounded-md 
                     bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                     peer-checked:border-0
@@ -198,9 +203,10 @@
                         </svg>
                     </span>
                     <pre class="font-mono check"> Beginner</pre>
+                    <div class="text-right w-full text-xs check">7</div>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="peer sr-only" id="inermediate"/>
+                    <input type="checkbox" class="level-filter peer sr-only" value="Intermediate"/>
                     <span class="flex h-5 w-5 items-center justify-center rounded-md 
                     bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                     peer-checked:border-0
@@ -212,9 +218,10 @@
                         </svg>
                     </span>
                     <pre class="font-mono check"> Inermediate</pre>
+                    <div class="text-right w-full text-xs check">6</div>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="peer sr-only" id="advanced"/>
+                    <input type="checkbox" class="level-filter peer sr-only" value="Advanced"/>
                     <span class="flex h-5 w-5 items-center justify-center rounded-md 
                     bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                     peer-checked:border-0
@@ -226,9 +233,10 @@
                         </svg>
                     </span>
                     <pre class="font-mono check"> Advanced</pre>
+                    <div class="text-right w-full text-xs check">3</div>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="peer sr-only" id="all-level" checked/>
+                    <input type="checkbox" class="level-all peer sr-only" checked/>
                     <span class="flex h-5 w-5 items-center justify-center rounded-md 
                     bg-transparent border border-slate-800 dark:border-slate-100 text-transparent peer-checked:bg-blue-500 peer-checked:text-white
                     peer-checked:border-0
@@ -240,11 +248,13 @@
                         </svg>
                     </span>
                     <pre class="font-mono check"> All</pre>
+                    <div class="text-right w-full text-xs check">16</div>
                 </label>
             </div>
         </aside>
+        <div id="mobileSideBar" class="fixed top-20 left-0 bottom-0 bg-slate-100 dark:bg-sky-950/5 border border-gray-600/30 w-0 overflow-hidden transition-[width] duration-500 ease-in-out z-50"></div>
         
-        <section class="min-w-0 p-3 sm:p-4 md:p-6 md:ml-64">
+        <section id="mainContent" class="min-w-0 p-3 sm:p-4 md:p-6 md:ml-68">
             <!-- Main Content Area goes here -->
             <div class="rounded-2xl border border-gray-600/30 -mt-5">
                 <div class="flex flex-col gap-3 p-4 rounded-2xl dark:bg-sky-950/5">
@@ -308,6 +318,9 @@
                 <input type="text" name="search" placeholder="Search Courses..." 
                        class="searchInp w-full pl-9 pr-4 py-1.5 bg-slate-200 dark:bg-slate-800 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"/>
             </form>
+            <p id="courseCount" class="mt-4 text-sm text-slate-500">
+                Showing all courses
+            </p>
             <div id="cardGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
             2xl:grid-cols-4 auto-rows-fr mt-6 gap-5">
 

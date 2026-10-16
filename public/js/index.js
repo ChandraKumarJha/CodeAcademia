@@ -65,10 +65,10 @@ coursesSpan.addEventListener("mouseenter", () => {
                     <img src="/images/python.png" class="h-5 bg-transparent"/>
                     <span class="group-hover:inline hidden text-sky-700 absolute right-0">&gt;</span>
                 </div>
-                <span class="text-sm font-normal opacity-40">Learn Beginner to Advance Python concepts with Code Academia</span>
+                <span class="text-sm font-normal opacity-40">Learn Beginner to Advance Python concepts</span>
             </div>
         </a>
-        <a href="/courses/dsa" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
+        <a href="/courses/cpp" class="px-6 py-4 flex flex-col rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 hover:border hover:border-slate-400 group transition-colors duration-100 ease-in">
             <div>
                 <div class="relative flex items-center gap-2">
                     <span>Data Structures & Algorithms</span>
