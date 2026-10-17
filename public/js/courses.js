@@ -97,7 +97,7 @@ function makeCard(category, course, level, langCategory, heading, paragraph, hre
     const card = document.createElement("article");
 
     card.className = `
-        group relative flex flex-col min-w-0 h-full
+        courseCard group relative flex flex-col min-w-0 h-full
         p-5 sm:p-6
         rounded-2xl
         border border-slate-200 dark:border-slate-800
@@ -174,7 +174,7 @@ function makeCard(category, course, level, langCategory, heading, paragraph, hre
     const title = document.createElement("h2");
 
     title.className = `
-        text-xl sm:text-2xl font-bold tracking-tight
+        courseTitle text-xl sm:text-2xl font-bold tracking-tight
         text-slate-900 dark:text-white
         mb-3
         group-hover:text-sky-700
@@ -229,9 +229,9 @@ function makeCard(category, course, level, langCategory, heading, paragraph, hre
 
 async function loadUserData() {
     try {
-        const localhostURI = "http://localhost:3000";
         const websiteURI = "https://code-academia-swyj.onrender.com";
-        const response = await fetch(`${localhostURI}/me`) || await fetch(`${websiteURI}/me`);
+        const localhostURI = 'http://localhost:3000';
+        const response = await fetch(`${localhostURI}/me`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -789,6 +789,91 @@ if (document.readyState === "loading") {
 } else {
     initialiseCourseFilters();
 }
+
+const searchForms = document.querySelectorAll(".searchCourses");
+const searchInputs = document.querySelectorAll(".searchInp");
+
+
+function searchCourses(query) {
+    const searchTerm = query.trim().toLowerCase();
+    let visibleCourses = 0;
+    const courseCards = document.querySelectorAll(".courseCard");
+    
+
+    courseCards.forEach(card => {
+        const title = card.querySelector(".courseTitle").textContent;
+
+        if (!title) return;
+
+        // Search by course title, technology, or other card content
+        const matches = title.toLocaleLowerCase().includes(searchTerm);
+
+        card.classList.toggle("hidden", !matches);
+
+        if (matches) {
+            visibleCourses++;
+        }
+    });
+
+    // Display a message when no courses match
+    let noResults = document.querySelector("#noCoursesFound");
+
+    if (!noResults) {
+        noResults = document.createElement("p");
+        noResults.id = "noCoursesFound";
+        noResults.className =
+            "col-span-full text-center text-gray-500 dark:text-gray-400 py-10";
+
+        const courseContainer = document.querySelector("#coursesContainer");
+
+        if (courseContainer) {
+            courseContainer.appendChild(noResults);
+        }
+    }
+
+    if (noResults) {
+        noResults.textContent = searchTerm
+            ? `No courses found for "${query.trim()}".`
+            : "";
+
+        noResults.classList.toggle(
+            "hidden",
+            !searchTerm || visibleCourses > 0
+        );
+    }
+}
+
+// Handle desktop and mobile search forms
+searchForms.forEach(form => {
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        
+
+        const input = form.querySelector(".searchInp");
+
+        if (!input) return;
+
+        // Synchronize all search inputs
+        searchInputs.forEach(inp => {
+            inp.value = input.value;
+        });
+
+        searchCourses(input.value);
+    });
+});
+
+// Optional: search dynamically while typing
+searchInputs.forEach(input => {
+    input.addEventListener("input", () => {
+        searchInputs.forEach(inp => {
+            if (inp !== input) {
+                inp.value = input.value;
+            }
+        });
+
+        searchCourses(input.value);
+    });
+});
 
 window.addEventListener("load", () => {
     loadWindow();

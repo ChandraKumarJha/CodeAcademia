@@ -33,4 +33,8 @@ router.get('/category', (req, res) => {
     res.send(category);
 });
 
+router.get('/web-dev/html', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'courses', 'html.html'))
+})
+
 module.exports = router;
