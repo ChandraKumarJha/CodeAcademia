@@ -231,7 +231,7 @@ async function loadUserData() {
     try {
         const websiteURI = "https://code-academia-swyj.onrender.com";
         const localhostURI = 'http://localhost:3000';
-        const response = await fetch(`${localhostURI}/me`);
+        const response = await fetch(`${websiteURI}/me`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
