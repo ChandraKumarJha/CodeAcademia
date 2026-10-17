@@ -410,7 +410,7 @@ async function loadWindow() {
     cardGrid.appendChild(cppAdvCard);
     const localhostURI = 'http://localhost:3000';
     const webURI = 'https://code-academia-swyj.onrender.com';
-    const category = await fetch(`${localhostURI}/courses/category`);
+    const category = await fetch(`${webURI                                  }/courses/category`);
     const result = await category.text();
     if (result === 'All') return; 
     const cardCaregories = document.querySelectorAll('.cardCategory');
