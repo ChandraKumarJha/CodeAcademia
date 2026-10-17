@@ -229,7 +229,7 @@ function makeCard(category, course, level, langCategory, heading, paragraph, hre
 
 async function loadUserData() {
     try {
-        const websiteURI = "https://code-academia-swyj.onrender.com";
+        const websiteURI = "https://code-academia-a-coding-platform.onrender.com";
         const localhostURI = 'http://localhost:3000';
         const response = await fetch(`${websiteURI}/me`);
 
@@ -409,7 +409,7 @@ async function loadWindow() {
     );
     cardGrid.appendChild(cppAdvCard);
     const localhostURI = 'http://localhost:3000';
-    const webURI = 'https://code-academia-swyj.onrender.com';
+    const webURI = 'https://code-academia-a-coding-platform.onrender.com';
     const category = await fetch(`${webURI}/courses/category`);
     const result = await category.text();
     if (result === 'All') return; 
