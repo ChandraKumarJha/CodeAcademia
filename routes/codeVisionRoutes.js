@@ -95,7 +95,7 @@ router.post("/execute", executeLimiter, async (req, res) => {
     res.status(timedOut ? 504 : 502).json({
       error: timedOut
         ? "The execution service timed out. Try again."
-        : "Could not reach the execution service. Check your connection and try again."
+        : "Could not reach the execution service. Check your connection and try again." + error
     });
   } finally {
     clearTimeout(timeout);
