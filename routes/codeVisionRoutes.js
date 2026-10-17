@@ -1,117 +1,71 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const path = require("path");
 const dotenv = require('dotenv');
 dotenv.config();
-const PISTON_API_URL = (process.env.PISTON_API_URL || "http://localhost:2000/api/v2").replace(/\/+$/, "");
-const rateLimit = require("express-rate-limit");
 
-const executeLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  limit: 12,
-  standardHeaders: "draft-7",
-  legacyHeaders: false,
-  message: { error: "Too many execution requests. Please wait a minute and try again." }
-});
+const HOST = "onecompiler-apis.p.rapidapi.com";
+const URL_RUN = `https://${HOST}/api/v1/run`;
 
-const LANGUAGES = {
-  javascript: { language: "javascript", version: "18.15.0", filename: "main.js" },
-  typescript: { language: "typescript", version: "5.0.3", filename: "main.ts" },
-  python: { language: "python", version: "3.10.0", filename: "main.py" },
-  c: { language: "c", version: "10.2.0", filename: "main.c" },
-  cpp: { language: "c++", version: "10.2.0", filename: "main.cpp" },
-  java: { language: "java", version: "15.0.2", filename: "Main.java" },
-  go: { language: "go", version: "1.16.2", filename: "main.go" },
-  rust: { language: "rust", version: "1.68.2", filename: "main.rs" },
-  csharp: { language: "csharp", version: "6.12.0", filename: "Main.cs" },
-  php: { language: "php", version: "8.2.3", filename: "main.php" },
-  ruby: { language: "ruby", version: "3.0.1", filename: "main.rb" },
-  bash: { language: "bash", version: "5.2.0", filename: "main.sh" }
+// CodeVision language id -> OneCompiler language id + file name.
+// Check the ids against OneCompiler's language list; "nodejs" is the one most likely to differ.
+const LANGS = {
+  javascript: { id: "nodejs",     file: "index.js" },
+  typescript: { id: "typescript", file: "index.ts" },
+  python:     { id: "python",     file: "main.py" },
+  c:          { id: "c",          file: "main.c" },
+  cpp:        { id: "cpp",        file: "main.cpp" },
+  java:       { id: "java",       file: "Main.java" },   // class must be named Main
+  go:         { id: "go",         file: "main.go" },
+  rust:       { id: "rust",       file: "main.rs" },
+  csharp:     { id: "csharp",     file: "Program.cs" },
+  php:        { id: "php",        file: "index.php" },
+  ruby:       { id: "ruby",       file: "main.rb" },
+  bash:       { id: "bash",       file: "script.sh" }
 };
 
-router.get("/health", (_req, res) => res.json({ status: "ok" }));
+router.post("/api/execute", express.json({ limit: "200kb" }), async (req, res) => {
+  const { language, code } = req.body || {};
+  const lang = LANGS[language];
 
-router.post("/execute", executeLimiter, async (req, res) => {
-  const { language, code, stdin = "" } = req.body || {};
-  if (!Object.prototype.hasOwnProperty.call(LANGUAGES, language)) {
-    return res.status(400).json({ error: "Unsupported language." });
-  }
-  if (typeof code !== "string" || !code.trim()) {
-    return res.status(400).json({ error: "Enter some code before running it." });
-  }
-  if (code.length > 50000) {
-    return res.status(413).json({ error: "Code is too large (maximum 50 KB)." });
-  }
-  if (typeof stdin !== "string" || stdin.length > 10000) {
-    return res.status(400).json({ error: "Input is invalid or too large (maximum 10 KB)." });
-  }
-
-  const config = LANGUAGES[language];
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
+  if (!lang) return res.status(400).json({ error: `Unsupported language: ${language}` });
+  if (typeof code !== "string" || !code.trim()) return res.status(400).json({ error: "No code provided." });
+  if (!process.env.RAPIDAPI_KEY) return res.status(500).json({ error: "Server is missing RAPIDAPI_KEY." });
 
   try {
-    const response = await fetch(`${PISTON_API_URL}/execute`, {
+    const response = await fetch(URL_RUN, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      signal: controller.signal,
+      headers: {
+        "Content-Type": "application/json",
+        "X-RapidAPI-Key": process.env.RAPIDAPI_KEY,
+        "X-RapidAPI-Host": HOST
+      },
       body: JSON.stringify({
-        language: config.language,
-        version: config.version,
-        files: [{ name: config.filename, content: code }],
-        stdin,
-        args: [],
-        compile_timeout: 10000,
-        run_timeout: 3000,
-        compile_memory_limit: 128000000,
-        run_memory_limit: 128000000
-      })
+        language: lang.id,
+        stdin: "",
+        files: [{ name: lang.file, content: code }]
+      }),
+      signal: AbortSignal.timeout(30000)
     });
 
-    const payload = await response.json().catch(() => ({}));
+    const data = await response.json().catch(() => ({}));
     if (!response.ok) {
-      return res.status(502).json({
-        error: payload.message || "The code execution service is temporarily unavailable."
-      });
+      return res.status(502).json({ error: data.message || data.error || `OneCompiler returned ${response.status}.` });
     }
 
+    // Map OneCompiler's response to the shape codevision.js expects.
+    const failed = Boolean(data.exception);
     res.json({
-      language: config.language,
-      version: config.version,
-      compile: payload.compile ? {
-        stdout: payload.compile.stdout || "",
-        stderr: payload.compile.stderr || "",
-        code: payload.compile.code ?? null,
-        signal: payload.compile.signal || null
-      } : null,
-      run: payload.run ? {
-        stdout: payload.run.stdout || "",
-        stderr: payload.run.stderr || "",
-        code: payload.run.code ?? null,
-        signal: payload.run.signal || null
-      } : null
+      run: {
+        stdout: data.stdout || "",
+        stderr: data.stderr || data.exception || "",
+        code: failed ? 1 : 0,
+        signal: null
+      }
     });
   } catch (error) {
-    console.log("error is:", error);
-    const timedOut = error.name === "AbortError";
-    res.status(timedOut ? 504 : 502).json({
-      error: timedOut
-        ? "The execution service timed out. Try again."
-        : "Could not reach the execution service. Check your connection and try again." + error
-    });
-  } finally {
-    clearTimeout(timeout);
+    const timedOut = error.name === "TimeoutError";
+    res.status(timedOut ? 504 : 502).json({ error: timedOut ? "Execution timed out." : "Could not reach OneCompiler." });
   }
-});
-
-router.use(express.static(path.join(__dirname, "public"), {
-  extensions: ["html"],
-  maxAge: process.env.NODE_ENV === "production" ? "1h" : 0
-}));
-
-router.use((err, _req, res, _next) => {
-  console.error(err);
-  res.status(500).json({ error: "An unexpected server error occurred." });
 });
 
 module.exports = router;

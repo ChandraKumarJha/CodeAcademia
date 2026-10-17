@@ -19,6 +19,7 @@ app.use(helmet({
   contentSecurityPolicy: false,
   crossOriginEmbedderPolicy: false
 }));
+app.use(require("./routes/codeVisionRoutes"));
 app.use(express.json({ limit: "64kb" }));
 
 const executeLimiter = rateLimit({
