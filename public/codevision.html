@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11131a">
+  <meta name="description" content="CodeVision — a responsive browser IDE for creating, editing, and running code.">
+  <title>CodeVision IDE — Code Academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/codevision.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" id="brandHome" aria-label="CodeVision home">
+        <img src="/images/codeVision.png" alt="codeVision Logo" style="height: 40px;">
+        <span class="brand-name">Code<span>Vision</span><small>by Code Academia</small></span>
+      </button>
+      <div class="top-actions">
+        <span class="save-state" id="saveState"><span class="state-dot"></span> All changes saved</span>
+        <button class="icon-btn mobile-only" id="toggleExplorer" aria-label="Toggle file explorer" title="Files">☷</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☼</button>
+        <button class="primary-btn" id="runBtn"><span class="play-icon">▶</span><span>Run code</span><kbd>Ctrl ↵</kbd></button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="activity-rail" aria-label="Activity bar">
+        <button class="rail-btn active" id="explorerRail" title="Explorer" aria-label="Explorer">▤</button>
+        <button class="rail-btn" id="searchRail" title="Search in open file" aria-label="Search">⌕</button>
+        <div class="rail-spacer"></div>
+        <button class="rail-btn" id="helpBtn" title="Keyboard shortcuts" aria-label="Keyboard shortcuts">ⓘ</button>
+      </aside>
+
+      <aside class="explorer" id="explorer">
+        <div class="pane-heading"><span>EXPLORER</span><button class="subtle-icon" id="collapseExplorer" aria-label="Close explorer">‹</button></div>
+        <div class="project-heading"><span class="chevron">⌄</span><span id="projectName">CODEVISION PROJECT</span><div class="project-actions"><button title="New file" id="newFileBtn">＋</button><button title="Open folder" id="openFolderBtn">▣</button><button title="Open file" id="openFileBtn">↗</button></div></div>
+        <div class="file-tree" id="fileTree">
+          <button class="tree-file selected" data-demo="true"><span class="file-icon js">JS</span><span>main.js</span></button>
+          <button class="tree-file" data-demo="true"><span class="file-icon html">5</span><span>index.html</span></button>
+          <button class="tree-file" data-demo="true"><span class="file-icon css">#</span><span>styles.css</span></button>
+        </div>
+        <div class="explorer-bottom">
+          <div class="explorer-tip"><span class="tip-icon">✦</span><div><strong>Your workspace</strong><p>Open a folder to work with your local project files.</p></div></div>
+          <button class="outline-btn full" id="openFolderBottom">Open folder</button>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <div class="tabs-bar" id="tabsBar">
+          <div class="tab active" data-tab="main.js"><span class="file-icon js">JS</span><span>main.js</span><span class="dirty-mark"></span><button class="tab-close" aria-label="Close main.js">×</button></div>
+          <div class="tab" data-tab="index.html"><span class="file-icon html">5</span><span>index.html</span><button class="tab-close" aria-label="Close index.html">×</button></div>
+          <div class="tab" data-tab="styles.css"><span class="file-icon css">#</span><span>styles.css</span><button class="tab-close" aria-label="Close styles.css">×</button></div>
+          <button class="tab-add" id="tabNewFile" title="New file">＋</button>
+        </div>
+        <div class="breadcrumb"><span class="muted">workspace</span><span class="crumb-sep">›</span><span id="breadcrumbFile">main.js</span><span class="breadcrumb-right" id="languageLabel">JavaScript</span></div>
+
+        <section class="editor-wrap">
+          <div id="editor" aria-label="Code editor"></div>
+          <div class="welcome-overlay hidden" id="editorLoading"><span class="loader"></span><span>Loading editor…</span></div>
+        </section>
+
+        <section class="bottom-panel" id="bottomPanel">
+          <div class="panel-top">
+            <div class="panel-tabs"><button class="panel-tab active" data-panel="output">OUTPUT</button><button class="panel-tab" data-panel="preview">PREVIEW</button><button class="panel-tab" data-panel="problems">PROBLEMS</button><button class="panel-tab" data-panel="terminal">TERMINAL</button></div>
+            <div class="panel-actions"><span class="preview-actions hidden" id="previewActions"><button class="subtle-icon" id="previewLive" aria-pressed="false" title="Live reload while typing">Live</button><button class="subtle-icon" id="previewRefresh" title="Reload preview">↻</button><button class="subtle-icon" id="previewMax" title="Maximize preview">⤢</button></span><span id="runDuration">Ready</span><button class="subtle-icon" id="clearOutput" title="Clear output">⌫</button><button class="subtle-icon" id="togglePanel" title="Hide panel">⌄</button></div>
+          </div>
+          <div class="panel-content" id="panelContent">
+            <div class="output-welcome" id="outputWelcome"><span class="terminal-symbol">›_</span><div><strong>Ready when you are.</strong><p>Run your code to see output here.</p></div></div>
+            <pre class="output-text hidden" id="outputText"></pre>
+            <div class="preview-view hidden" id="previewView">
+              <div class="preview-empty" id="previewEmpty"><strong>No preview yet.</strong><p>Open an HTML file (or a CSS/JS file linked from one) and press Run code.</p></div>
+              <iframe id="previewFrame" title="Live preview" sandbox="allow-scripts allow-modals allow-forms allow-popups" referrerpolicy="no-referrer"></iframe>
+              <div class="preview-console hidden" id="previewConsole" aria-label="Preview console"></div>
+            </div>
+            <div class="terminal-view hidden" id="terminalView"><span class="terminal-prompt">codevision $</span> <span>Terminal access is not enabled in the browser IDE. Use Run code to execute supported languages safely through the execution API.</span></div>
+            <div class="problems-view hidden" id="problemsView">No problems reported yet.</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="statusbar">
+      <div class="status-left"><span>⌘ <span id="statusBranch">workspace</span></span><span>✓ No errors detected</span></div>
+      <div class="status-right"><span id="statusLanguage">JavaScript</span><span>UTF-8</span><span>LF</span><span id="cursorStatus">Ln 1, Col 1</span><span class="status-brand">CodeVision</span></div>
+    </footer>
+  </div>
+
+  <input type="file" id="fileInput" hidden multiple>
+  <input type="file" id="folderInput" hidden webkitdirectory multiple>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="newFileDialog" class="modal">
+    <form method="dialog" id="newFileForm">
+      <div class="modal-heading"><div><span class="eyebrow">WORKSPACE</span><h2>Create a file</h2></div><button class="subtle-icon" value="cancel" aria-label="Close">×</button></div>
+      <label for="newFileName">File name</label><input id="newFileName" name="filename" placeholder="e.g. app.py" autocomplete="off" required maxlength="120">
+      <p class="field-hint">Include an extension such as .js, .py, .html, .cpp, or .java.</p>
+      <div class="modal-actions"><button class="outline-btn" value="cancel">Cancel</button><button class="primary-btn" id="createFileConfirm" value="default">Create file</button></div>
+    </form>
+  </dialog>
+  <dialog id="helpDialog" class="modal">
+    <form method="dialog">
+      <div class="modal-heading"><div><span class="eyebrow">QUICK REFERENCE</span><h2>Keyboard shortcuts</h2></div><button class="subtle-icon" value="cancel" aria-label="Close">×</button></div>
+      <div class="shortcut-list"><span>Save</span><kbd>Ctrl / ⌘ + S</kbd><span>Save as</span><kbd>Ctrl / ⌘ + Shift + S</kbd><span>Run code</span><kbd>Ctrl / ⌘ + Enter</kbd><span>New file</span><kbd>Ctrl / ⌘ + N</kbd><span>Find</span><kbd>Ctrl / ⌘ + F</kbd></div>
+      <div class="modal-actions"><button class="primary-btn" value="cancel">Got it</button></div>
+    </form>
+  </dialog>
+  <script src="js/codevision.js"></script>
+</body>
+</html>

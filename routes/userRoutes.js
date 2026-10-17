@@ -16,4 +16,8 @@ router.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'signup.html'))
 });
 
+router.get('/codeVision', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'codevision.html'))
+});
+
 module.exports = router;
