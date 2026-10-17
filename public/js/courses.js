@@ -245,7 +245,7 @@ async function loadUserData() {
     }
 }
 
-function loadWindow() {
+async function loadWindow() {
     loadUserData();
     const cardGrid = document.getElementById("cardGrid");
     const htmlCard = makeCard(
@@ -408,6 +408,21 @@ function loadWindow() {
         "/courses/cpp/advanced"
     );
     cardGrid.appendChild(cppAdvCard);
+    const localhostURI = 'http://localhost:3000';
+    const webURI = 'https://code-academia-swyj.onrender.com';
+    const category = await fetch(`${localhostURI}/courses/category`);
+    const result = await category.text();
+    if (result === 'All') return; 
+    const cardCaregories = document.querySelectorAll('.cardCategory');
+    cardCaregories.forEach(category => {
+        if (category.textContent !== result) {
+            category.parentElement.parentElement.parentElement.classList.add("hidden");
+        }
+    });
+    document.querySelectorAll(".category").forEach(span => {
+        span.innerText = result;
+    })
+    
 }
 
 
