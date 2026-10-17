@@ -90,6 +90,7 @@ router.post("/execute", executeLimiter, async (req, res) => {
       } : null
     });
   } catch (error) {
+    console.log("error is:", error);
     const timedOut = error.name === "AbortError";
     res.status(timedOut ? 504 : 502).json({
       error: timedOut
